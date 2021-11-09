@@ -21,21 +21,21 @@
 
       <div class="right col-lg-6 col-md-6 col-sm-12 d-flex align-items-center">
         <!-- start-form -->
-        <form class="form container col-md-12 col-lg-8">
+        <form class="form container col-md-12 col-lg-8" method=POST action="Routes/Route.php">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Username</label>
-            <input type="email" class="form-control p-md-2" id="Username bootstrap-overrides"
+            <input type="text" name="username" class="form-control p-md-2" id="Username bootstrap-overrides"
               aria-describedby="emailHelp" />
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control p-md-2" id="password" />
+            <input type="password" name="password" class="form-control p-md-2" id="password" />
           </div>
           <div class="mb-3 form-check">
             <input type="checkbox" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Remember me</label>
           </div>
-          <button type="submit" class="btn w-100 btn-primary">
+          <button type="submit" name="submit" class="btn w-100 btn-primary">
             Login
           </button>
         </form>
