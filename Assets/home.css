@@ -1,0 +1,274 @@
+@font-face {
+  font-family: "Scheherazade New";
+  src: url(Font/ScheherazadeNew-Regular.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "GT Alpina Fine Trial Rg";
+  src: url(Font/GT-Alpina-Fine-Regular-Trial) format("opentype");
+}
+
+@font-face {
+  font-family: "OptimusPrinceps";
+  src: url(Font/OptimusPrinceps.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "GT Alpina Trial Lt";
+  src: url(Font/GT-Alpina-Light-Trial.woff2) format("woff2");
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  resize: both;
+}
+
+section.hero {
+  height: 100vh;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5))), url(pict/hero.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5)), url(pict/hero.png);
+  -o-object-fit: cover;
+     object-fit: cover;
+  background-size: cover;
+  color: #fff;
+  background-position: center;
+}
+
+section.hero .navbar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+  font-size: 1.6em;
+  -webkit-column-gap: 2em;
+          column-gap: 2em;
+}
+
+section.hero .navbar .logo {
+  font-family: "OptimusPrinceps";
+  font-size: 1.2em;
+}
+
+section.hero .navbar .logo a {
+  color: #fff;
+  text-decoration: none;
+}
+
+section.hero .navbar .nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 35%;
+  list-style-type: none;
+  font-family: "Scheherazade New";
+}
+
+section.hero .navbar .nav-list a {
+  color: #A8A8A8;
+  text-decoration: none;
+}
+
+section.hero .navbar .nav-list a:hover {
+  color: #fff;
+}
+
+section.hero .hero-text {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  text-align: end;
+  top: 35%;
+  right: 1rem;
+  font-family: "GT Alpina Fine Trial Rg";
+  font-size: 1.3em;
+}
+
+section.hero .hero-text h1 {
+  margin-bottom: 1rem;
+}
+
+section.hero .hero-text h3 {
+  width: 30%;
+}
+
+section.best-seller {
+  width: 90%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 64px auto;
+  font-family: "GT Alpina Fine Trial Rg";
+}
+
+section.best-seller h1 {
+  font-size: 2rem;
+  margin-bottom: 32px;
+}
+
+section.best-seller .card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: .5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+section.best-seller .card-container .card {
+  width: 400px;
+  height: 600px;
+  position: relative;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)));
+  background: linear-gradient(rgba(0, 0, 0, 0.5));
+  overflow: hidden;
+}
+
+section.best-seller .card-container .card .card-image img {
+  mix-blend-mode: overlay;
+}
+
+section.best-seller .card-container .card .card-content {
+  position: relative;
+  color: #fff;
+  font-size: 1.1rem;
+  -webkit-transform: translateY(-70px);
+          transform: translateY(-70px);
+  padding-left: 20px;
+  -webkit-transition: .5s ease all;
+  transition: .5s ease all;
+}
+
+section.best-seller .card-container .card .card-content h3 {
+  font-size: 1.5em;
+}
+
+section.best-seller .card-container .card .card-content .card-button-action {
+  margin-top: 28px;
+  width: 400px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: inline-block;
+}
+
+section.best-seller .card-container .card .card-content .card-button-action .add-to-cart {
+  width: 40%;
+  border: 3px solid #fff;
+  background-color: transparent;
+  padding: 10px;
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: "GT Alpina Fine Trial Rg";
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section.best-seller .card-container .card .card-content .card-button-action .add-to-cart:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+section.best-seller .card-container .card .card-content .card-button-action .details {
+  width: 40%;
+  border: 3px solid #fff;
+  background-color: #fff;
+  padding: 10px;
+  color: #000;
+  font-size: 1.5rem;
+  font-family: "GT Alpina Fine Trial Rg";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+section.best-seller .card-container .card .card-content .card-button-action .details:hover {
+  border: 3px solid #000;
+  background-color: #000;
+  color: #fff;
+}
+
+section.best-seller .card-container .card:hover .card-content {
+  -webkit-transform: translateY(-160px);
+          transform: translateY(-160px);
+}
+
+section.best-seller .show-more {
+  margin-top: 32px;
+  font-family: "GT Alpina Fine Trial Rg";
+  border: none;
+  background-color: #000;
+  color: #fff;
+  padding: .8rem;
+  font-size: 1rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+@media screen and (max-width: 768px) {
+  section.hero .navbar {
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    font-size: 1.2em;
+  }
+  section.hero .navbar .nav-list {
+    width: 50%;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+  }
+  section.hero .hero-text {
+    top: 20%;
+    font-size: 1em;
+  }
+  section.hero .hero-text h3 {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  section.hero .navbar .nav-list {
+    display: none;
+  }
+  section.hero .hero-text {
+    width: 100%;
+    font-size: 1em;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    justify-items: flex-end;
+    text-align: center;
+    top: 200px;
+    right: 0;
+  }
+}
+/*# sourceMappingURL=home.css.map */
