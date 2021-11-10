@@ -1,25 +1,34 @@
 <?php
-require '../Config/ClassDatabase.php';
+require_once ('ClassDatabase.php');
 
 class Query extends Connect{
 
-    protected $query;
+    protected $sql;
     protected $result;
 
-    // public function query_login($email, $password){}
+    // public function sql_login($email, $password){}
 
-    // public function query_validDateEmail($email){}
+    // public function sql_validDateEmail($email){}
+    public function SQLValidateUsername($username){
+		// Nantinya saya akan gunakan untuk proses validasi username pada proses register
+		$this->sql = "SELECT * FROM users WHERE username = '".$username."'";
+		// Memanggil method getResult untuk mengeksekusi sintaks SQL.
+		return $this->getResult();
+	}
 
-    public function query_register($username, $password){
-        $this->query = "INSERT INTO users(username, password, umur, jenis_kelamin) VALUES ('$username', '$password')";
+    public function sql_register($username, $password){
+        $this->sql = "INSERT INTO users(username, password, umur, jenis_kelamin) VALUES ('$username', '$password')";
 		return $this->getResult();
     }
+
     public function getResult(){
-        $this->result = $this->dbconn()->query($this->query);
+        $this->result = $this->dbconn()->query($this->sql);
         return $this;
     }
-    public function FecthArray(){
-        $row = $this->result->fetch_array();
+
+    public function FetchArray(){
+		// Method ini berfungsi untuk memasukan data yang berada pada database kedalam variable array.
+		$row = $this->result->fetch_array();
 		return $row;
-    }
+	}
 }

@@ -6,6 +6,7 @@ class Connect{
     private $username;
     private $password;
     private $dbname;
+    private $connection;
 
     protected function dbConn(){
         $this->servername = 'localhost';
@@ -14,9 +15,11 @@ class Connect{
         $this->dbname = 'warisanify';
 
         // mysqli_connect()
-        $connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
-        return $connection;
+        $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        return $this->connection;
     }
+
+    
 }
 
 
