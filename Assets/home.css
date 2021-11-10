@@ -23,7 +23,6 @@
   margin: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  resize: both;
 }
 
 section.hero {
@@ -119,6 +118,7 @@ section.best-seller {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  justify-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -136,12 +136,10 @@ section.best-seller .card-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  gap: .5rem;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  gap: 2rem;
 }
 
 section.best-seller .card-container .card {
@@ -155,17 +153,23 @@ section.best-seller .card-container .card {
 
 section.best-seller .card-container .card .card-image img {
   mix-blend-mode: overlay;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center bottom;
+     object-position: center bottom;
 }
 
 section.best-seller .card-container .card .card-content {
   position: relative;
   color: #fff;
-  font-size: 1.1rem;
-  -webkit-transform: translateY(-70px);
-          transform: translateY(-70px);
+  font-size: 1.2rem;
+  -webkit-transform: translateY(-90px);
+          transform: translateY(-90px);
   padding-left: 20px;
   -webkit-transition: .5s ease all;
   transition: .5s ease all;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 section.best-seller .card-container .card .card-content h3 {
@@ -173,8 +177,8 @@ section.best-seller .card-container .card .card-content h3 {
 }
 
 section.best-seller .card-container .card .card-content .card-button-action {
-  margin-top: 28px;
-  width: 400px;
+  margin-top: 32px;
+  width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: inline-block;
@@ -186,12 +190,14 @@ section.best-seller .card-container .card .card-content .card-button-action .add
   background-color: transparent;
   padding: 10px;
   color: #fff;
-  font-size: 1.5rem;
+  font-size: 100%;
   font-family: "GT Alpina Fine Trial Rg";
   -webkit-transition: .3s ease all;
   transition: .3s ease all;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  margin-right: 12px;
+  cursor: pointer;
 }
 
 section.best-seller .card-container .card .card-content .card-button-action .add-to-cart:hover {
@@ -205,10 +211,9 @@ section.best-seller .card-container .card .card-content .card-button-action .det
   background-color: #fff;
   padding: 10px;
   color: #000;
-  font-size: 1.5rem;
+  font-size: 100%;
   font-family: "GT Alpina Fine Trial Rg";
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  cursor: pointer;
 }
 
 section.best-seller .card-container .card .card-content .card-button-action .details:hover {
@@ -222,6 +227,10 @@ section.best-seller .card-container .card:hover .card-content {
           transform: translateY(-160px);
 }
 
+section.best-seller a {
+  text-decoration: none;
+}
+
 section.best-seller .show-more {
   margin-top: 32px;
   font-family: "GT Alpina Fine Trial Rg";
@@ -233,6 +242,15 @@ section.best-seller .show-more {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  cursor: pointer;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+section.best-seller .show-more:hover {
+  border: 3px solid #000;
+  background-color: #fff;
+  color: #000;
 }
 
 @media screen and (max-width: 768px) {
@@ -253,6 +271,47 @@ section.best-seller .show-more {
   section.hero .hero-text h3 {
     width: 50%;
   }
+  section.best-seller {
+    overflow: hidden;
+  }
+  section.best-seller .card-container {
+    display: -ms-grid;
+    display: grid;
+    grid-auto-flow: column;
+    gap: unset;
+    -webkit-box-pack: unset;
+        -ms-flex-pack: unset;
+            justify-content: unset;
+    position: relative;
+  }
+  section.best-seller .card-container .card:nth-child(1) {
+    z-index: -1;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(black));
+    background: linear-gradient(rgba(0, 0, 0, 0.6), black);
+    mix-blend-mode: overlay;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+    left: -8%;
+  }
+  section.best-seller .card-container .card:nth-child(1) .card-content {
+    display: none;
+  }
+  section.best-seller .card-container .card:nth-child(2) {
+    z-index: 2;
+    left: -70%;
+  }
+  section.best-seller .card-container .card:nth-child(3) {
+    z-index: -2;
+    left: -130%;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(black));
+    background: linear-gradient(rgba(0, 0, 0, 0.6), black);
+    mix-blend-mode: overlay;
+    -webkit-transform: scale(0.8);
+            transform: scale(0.8);
+  }
+  section.best-seller .card-container .card:nth-child(3) .card-content {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 576px) {
@@ -269,6 +328,66 @@ section.best-seller .show-more {
     text-align: center;
     top: 200px;
     right: 0;
+  }
+  section.best-seller h1 {
+    text-align: center;
+  }
+  section.best-seller .card-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    row-gap: 2rem;
+    position: unset;
+  }
+  section.best-seller .card-container .card {
+    width: 400px;
+    height: 600px;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)));
+    background: linear-gradient(rgba(0, 0, 0, 0.5));
+    overflow: hidden;
+    -webkit-transform: unset;
+            transform: unset;
+  }
+  section.best-seller .card-container .card:nth-child(1) {
+    z-index: unset;
+    background: inherit;
+    mix-blend-mode: unset;
+    -webkit-transform: unset;
+            transform: unset;
+    left: unset;
+  }
+  section.best-seller .card-container .card:nth-child(1) .card-content {
+    display: inherit;
+  }
+  section.best-seller .card-container .card:nth-child(2) {
+    z-index: unset;
+    left: unset;
+  }
+  section.best-seller .card-container .card:nth-child(3) {
+    z-index: unset;
+    left: unset;
+    background: inherit;
+    mix-blend-mode: none;
+    -webkit-transform: unset;
+            transform: unset;
+  }
+  section.best-seller .card-container .card:nth-child(3) .card-content {
+    display: inherit;
+  }
+  section.best-seller .show-more {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin: 32px auto 0 auto;
   }
 }
 /*# sourceMappingURL=home.css.map */

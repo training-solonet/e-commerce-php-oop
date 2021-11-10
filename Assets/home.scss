@@ -23,7 +23,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    resize: both;
+
 }
 
 section.hero {
@@ -96,6 +96,7 @@ section.hero {
 section.best-seller {
     width: 90%;
     display: flex;
+    justify-items: center;
     flex-direction: column;
     margin: 64px auto;
     font-family: "GT Alpina Fine Trial Rg";
@@ -107,9 +108,8 @@ section.best-seller {
 
     .card-container {
         display: flex;
-        gap: .5rem;
-        flex-wrap: wrap;
         justify-content: space-between;
+        gap: 2rem;
 
         .card {
             width: 400px;
@@ -120,26 +120,28 @@ section.best-seller {
 
             .card-image img {
                 mix-blend-mode: overlay;
+                object-fit: cover;
+                object-position: center bottom;
             }
 
             .card-content {
                 position: relative;
                 color: #fff;
-                font-size: 1.1rem;
-                transform: translateY(-70px);
+                font-size: 1.2rem;
+                transform: translateY(-90px);
                 padding-left: 20px;
                 transition: .5s ease all;
+                box-sizing: border-box;
 
                 h3 {
                     font-size: 1.5em;
                 }
 
                 .card-button-action {
-                    margin-top: 28px;
-                    width: 400px;
+                    margin-top: 32px;
+                    width: 100%;
                     box-sizing: border-box;
                     display: inline-block;
-
 
                     .add-to-cart {
                         width: 40%;
@@ -147,10 +149,12 @@ section.best-seller {
                         background-color: transparent;
                         padding: 10px;
                         color: #fff;
-                        font-size: 1.5rem;
+                        font-size: 100%;
                         font-family: "GT Alpina Fine Trial Rg";
                         transition: .3s ease all;
                         box-sizing: border-box;
+                        margin-right: 12px;
+                        cursor: pointer;
                     }
 
                     .add-to-cart:hover {
@@ -164,9 +168,9 @@ section.best-seller {
                         background-color: #fff;
                         padding: 10px;
                         color: #000;
-                        font-size: 1.5rem;
+                        font-size: 100%;
                         font-family: "GT Alpina Fine Trial Rg";
-                        box-sizing: border-box;
+                        cursor: pointer;
                     }
 
                     .details:hover {
@@ -187,6 +191,9 @@ section.best-seller {
         }
     }
 
+    a {
+        text-decoration: none;
+    }
 
     .show-more {
         margin-top: 32px;
@@ -197,6 +204,14 @@ section.best-seller {
         padding: .8rem;
         font-size: 1rem;
         width: fit-content;
+        cursor: pointer;
+        transition: .3s ease all;
+    }
+
+    .show-more:hover {
+        border: 3px solid #000;
+        background-color: #fff;
+        color: #000;
     }
 }
 
@@ -226,6 +241,50 @@ section.best-seller {
             }
         }
     }
+
+
+    section.best-seller {
+        overflow: hidden;
+
+        .card-container {
+            display: grid;
+            grid-auto-flow: column;
+            gap: unset;
+            justify-content: unset;
+            position: relative;
+
+            .card:nth-child(1) {
+                z-index: -1;
+                background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 1));
+                mix-blend-mode: overlay;
+                transform: scale(.8);
+                left: -8%;
+
+                .card-content {
+                    display: none;
+                }
+            }
+
+            .card:nth-child(2) {
+                z-index: 2;
+                left: -70%;
+            }
+
+            .card:nth-child(3) {
+                z-index: -2;
+                left: -130%;
+                background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, 1));
+                mix-blend-mode: overlay;
+                transform: scale(.8);
+
+                .card-content {
+                    display: none;
+                }
+            }
+        }
+
+
+    }
 }
 
 @media screen and (max-width: 576px) {
@@ -244,6 +303,63 @@ section.best-seller {
             text-align: center;
             top: 200px;
             right: 0;
+        }
+    }
+
+    section.best-seller {
+        h1 {
+            text-align: center;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-direction: row;
+            row-gap: 2rem;
+            position: unset;
+
+            .card {
+                width: 400px;
+                height: 600px;
+                background: linear-gradient(rgba(0, 0, 0, .5));
+                overflow: hidden;
+                transform: unset;
+            }
+
+            .card:nth-child(1) {
+                z-index: unset;
+                background: inherit;
+                mix-blend-mode: unset;
+                transform: unset;
+                left: unset;
+
+                .card-content {
+                    display: inherit;
+                }
+            }
+
+            .card:nth-child(2) {
+                z-index: unset;
+                left: unset;
+            }
+
+            .card:nth-child(3) {
+                z-index: unset;
+                left: unset;
+                background: inherit;
+                mix-blend-mode: none;
+                transform: unset;
+
+                .card-content {
+                    display: inherit;
+                }
+            }
+        }
+
+        .show-more {
+            display: flex;
+            margin: 32px auto 0 auto;
         }
     }
 }
