@@ -1,26 +1,20 @@
 <?php
+class Connect {
+    private $servername;
+    private $username;
+    private $password;
+    private $dbname;
 
-class Koneksi{
- 
-    private $host = 'localhost';
-    private $username = 'root';
-    private $password = '';
-    private $database = 'warisanify';
- 
     protected $connection;
- 
-    public function __construct(){
- 
-        if (!isset($this->connection)) {
-            
-            $this->connection = new mysqli($this->host, $this->username, $this->password, $this->database);
- 
-            if (!$this->connection) {
-                echo 'Cannot connect to database server';
-                exit;
-            }            
-        }    
- 
+
+    protected function dbConn(){
+        $this->servername = 'localhost';
+        $this->username = 'root';
+        $this->password = '';
+        $this->dbname = 'warisanify';
+
+        // mysqli_connect()
+        $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
         return $this->connection;
     }
 }

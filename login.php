@@ -23,12 +23,12 @@
         <!-- start-form -->
         <form class="form container col-md-12 col-lg-8" method=POST action="Routes/Route.php">
           <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Username</label>
-            <input type="text" name="username" class="form-control p-md-2" id="Username bootstrap-overrides"
+            <label for="Username" class="form-label">Username</label>
+            <input type="text" name="username" class="form-control p-md-2" id="Username"
               aria-describedby="emailHelp" />
           </div>
           <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <label for="password" class="form-label">Password</label>
             <input type="password" name="password" class="form-control p-md-2" id="password" />
           </div>
           <div class="mb-3 form-check">
