@@ -25,6 +25,18 @@
           box-sizing: border-box;
 }
 
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  row-gap: 150px;
+  overflow-x: hidden;
+}
+
 section.hero {
   height: 100vh;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5))), url(pict/hero.png);
@@ -123,7 +135,7 @@ section.best-seller {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin: 64px auto;
+  margin: auto;
   font-family: "GT Alpina Fine Trial Rg";
 }
 
@@ -182,6 +194,7 @@ section.best-seller .card-container .card .card-content .card-button-action {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   display: inline-block;
+  margin-bottom: 12px;
 }
 
 section.best-seller .card-container .card .card-content .card-button-action .add-to-cart {
@@ -236,6 +249,7 @@ section.best-seller .show-more {
   font-family: "GT Alpina Fine Trial Rg";
   border: none;
   background-color: #000;
+  border: 3px solid #000;
   color: #fff;
   padding: .8rem;
   font-size: 1rem;
@@ -249,6 +263,108 @@ section.best-seller .show-more {
 
 section.best-seller .show-more:hover {
   border: 3px solid #000;
+  background-color: #fff;
+  color: #000;
+}
+
+section.about {
+  width: 100%;
+  height: 400px;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.35))), url(pict/about.png);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.35)), url(pict/about.png);
+  background-position: center;
+  background-size: cover;
+  color: #fff;
+  font-family: "GT Alpina Fine Trial Rg";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  row-gap: 1rem;
+  margin: auto;
+}
+
+section.about h1 {
+  font-size: 2.5em;
+}
+
+section.about a button {
+  padding: .8rem 1.5rem;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 1.7em;
+  font-family: "GT Alpina Fine Trial Rg";
+  cursor: pointer;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+section.about a button:hover {
+  background-color: white;
+  color: #000;
+}
+
+section.membership {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-column-gap: 3rem;
+          column-gap: 3rem;
+  grid-auto-flow: column;
+  -ms-grid-columns: 20% 5px 30% auto;
+      grid-template-columns: 20% 5px 30% auto;
+  width: 80%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: auto;
+  margin-bottom: 400px;
+  font-family: "GT Alpina Fine Trial Rg";
+}
+
+section.membership h1 {
+  font-size: 3vw;
+}
+
+section.membership hr {
+  height: 100%;
+  width: .3vw;
+  background-color: #000;
+  border: none;
+}
+
+section.membership p {
+  font-size: 1.6vw;
+}
+
+section.membership button.upgrade-membership {
+  padding: 1rem 1.5rem;
+  background-color: #000;
+  border: 3px solid #000;
+  font-size: 1.8vw;
+  font-family: "GT Alpina Fine Trial Rg";
+  color: #fff;
+  cursor: pointer;
+  -webkit-transition: .3s ease all;
+  transition: .3s ease all;
+}
+
+section.membership button.upgrade-membership:hover {
   background-color: #fff;
   color: #000;
 }
@@ -311,6 +427,24 @@ section.best-seller .show-more:hover {
   }
   section.best-seller .card-container .card:nth-child(3) .card-content {
     display: none;
+  }
+  section.membership {
+    width: 90%;
+  }
+  section.membership h1 {
+    font-size: 30px;
+  }
+  section.membership h1 span {
+    display: block;
+  }
+  section.membership hr {
+    width: 5px;
+  }
+  section.membership p {
+    font-size: 24px;
+  }
+  section.membership button.upgrade-membership {
+    font-size: 16px;
   }
 }
 
@@ -388,6 +522,17 @@ section.best-seller .show-more:hover {
     display: -ms-flexbox;
     display: flex;
     margin: 32px auto 0 auto;
+  }
+  section.membership {
+    grid-auto-flow: row;
+    -ms-grid-columns: unset;
+        grid-template-columns: unset;
+    -ms-grid-rows: 1fr 30px 1fr 1fr;
+        grid-template-rows: 1fr 30px 1fr 1fr;
+  }
+  section.membership hr {
+    width: 100%;
+    height: 5px;
   }
 }
 /*# sourceMappingURL=home.css.map */

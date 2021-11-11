@@ -26,6 +26,14 @@
 
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 150px;
+    overflow-x: hidden;
+}
+
+
 section.hero {
     height: 100vh;
     background-image: linear-gradient(rgba(0, 0, 0, .5)), url(pict/hero.png);
@@ -98,7 +106,7 @@ section.best-seller {
     display: flex;
     justify-items: center;
     flex-direction: column;
-    margin: 64px auto;
+    margin: auto;
     font-family: "GT Alpina Fine Trial Rg";
 
     h1 {
@@ -142,6 +150,7 @@ section.best-seller {
                     width: 100%;
                     box-sizing: border-box;
                     display: inline-block;
+                    margin-bottom: 12px;
 
                     .add-to-cart {
                         width: 40%;
@@ -200,6 +209,7 @@ section.best-seller {
         font-family: "GT Alpina Fine Trial Rg";
         border: none;
         background-color: #000;
+        border: 3px solid #000;
         color: #fff;
         padding: .8rem;
         font-size: 1rem;
@@ -215,6 +225,88 @@ section.best-seller {
     }
 }
 
+
+section.about {
+    width: 100%;
+    height: 400px;
+    background-image: linear-gradient(rgba(0, 0, 0, .35)), url(pict/about.png);
+    background-position: center;
+    background-size: cover;
+    color: #fff;
+    font-family: "GT Alpina Fine Trial Rg";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 1rem;
+    margin: auto;
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    a button {
+        padding: .8rem 1.5rem;
+        background-color: transparent;
+        color: #fff;
+        border: 2px solid #fff;
+        font-size: 1.7em;
+        font-family: "GT Alpina Fine Trial Rg";
+        cursor: pointer;
+        transition: .3s ease all;
+    }
+
+    a button:hover {
+        background-color: white;
+        color: #000;
+    }
+}
+
+
+section.membership {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    column-gap: 3rem;
+    grid-auto-flow: column;
+    grid-template-columns: 20% 5px 30% auto;
+    width: 80%;
+    height: fit-content;
+    margin: auto;
+    margin-bottom: 400px;
+    font-family: "GT Alpina Fine Trial Rg";
+
+    h1 {
+        font-size: 3vw;
+    }
+
+    hr {
+        height: 100%;
+        width: .3vw;
+        background-color: #000;
+        border: none;
+    }
+
+    p {
+        font-size: 1.6vw;
+    }
+
+    button.upgrade-membership {
+        padding: 1rem 1.5rem;
+        background-color: #000;
+        border: 3px solid #000;
+        font-size: 1.8vw;
+        font-family: "GT Alpina Fine Trial Rg";
+        color: #fff;
+        cursor: pointer;
+        transition: .3s ease all;
+    }
+
+    button.upgrade-membership:hover {
+        background-color: #fff;
+        color: #000;
+    }
+}
 
 
 
@@ -242,7 +334,7 @@ section.best-seller {
         }
     }
 
-
+    
     section.best-seller {
         overflow: hidden;
 
@@ -282,8 +374,30 @@ section.best-seller {
                 }
             }
         }
+    }
 
+    section.membership {
+        width: 90%;
 
+        h1 {
+            font-size: 30px;
+
+            span {
+                display: block;
+            }
+        }
+
+        hr {
+            width: 5px;
+        }
+
+        p {
+            font-size: 24px;
+        }
+
+        button.upgrade-membership {
+            font-size: 16px;
+        }
     }
 }
 
@@ -360,6 +474,17 @@ section.best-seller {
         .show-more {
             display: flex;
             margin: 32px auto 0 auto;
+        }
+    }
+
+    section.membership {
+        grid-auto-flow: row;
+        grid-template-columns: unset;
+        grid-template-rows: 1fr 30px 1fr 1fr;
+
+        hr {
+            width: 100%;
+            height: 5px;
         }
     }
 }
