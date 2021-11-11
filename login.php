@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (isset($_SESSION['logins'])) {
+  header('Location: home.php');
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +14,7 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
   <link rel="stylesheet" href="Assets/login.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -24,15 +32,14 @@
         <form class="form container col-md-12 col-lg-8" method=POST action="Routes/Route.php">
           <div class="mb-3">
             <label for="Username" class="form-label">Username</label>
-            <input type="text" name="username" class="form-control p-md-2" id="Username"
-              aria-describedby="emailHelp" />
+            <input type="text" name="username" class="form-control p-md-2" id="Username" aria-describedby="emailHelp" />
           </div>
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" name="password" class="form-control p-md-2" id="password" />
           </div>
           <div class="mb-3 form-check">
-            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">
             <label class="form-check-label" for="exampleCheck1">Remember me</label>
           </div>
           <button type="submit" name="submit" class="btn w-100 btn-primary">
