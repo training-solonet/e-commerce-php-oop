@@ -1,3 +1,15 @@
+<?php
+
+include '/App/ClassLogin.php';
+session_start();
+if(isset($_POST['submit'])){
+	$register = new RegisterController;
+	$register->getData($_POST['name'], $_POST['password'], $_POST['confirm-password']);
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,19 +30,27 @@
   <div class="container-fluid">
     <div class="row vh-100">
       <div class="left col-lg-6 col-md-6 col-sm-12 d-flex align-items-center">
-        <form method="POST" action="Routes/Route.php" class="form container col-md-12 col-lg-8">
+      <?php
+					if(isset($_POST['submit'])){
+						echo "<div class='alert alert-danger text-center' role='alert'>
+							'".$register->message."'
+						</div>";
+					}
+				?>
+
+        <form action="Routes/Route.php" method="POST" class="form container col-md-12 col-lg-8">
           <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Username</label>
-            <input type="text" class="form-control p-md-2" id="Username" name="username" bootstrap-overrides"
+            <input type="email" class="form-control p-md-2" id="Username bootstrap-overrides"
               aria-describedby="emailHelp" />
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control p-md-2" id="password" name="password" />
+            <input type="password" class="form-control p-md-2" id="password" />
           </div>
           <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
-            <input type="password" class="form-control p-md-2" id="Cpassword" name="Cpassword" />
+            <input type="password" class="form-control p-md-2" id="Cpassword" />
           </div>
           <button type="submit" class="btn w-100 btn-primary">
             Register
