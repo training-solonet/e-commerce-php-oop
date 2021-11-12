@@ -1,13 +1,15 @@
 <?php
-class Connect {
-    private $servername;
-    private $username;
-    private $password;
-    private $dbname;
+class Connect
+{
+    public $servername;
+    public $username;
+    public $password;
+    public $dbname;
 
-    protected $connection;
+    public $connection;
 
-    protected function dbConn(){
+    public function __construct()
+    {
         $this->servername = 'localhost';
         $this->username = 'root';
         $this->password = '';
@@ -18,5 +20,3 @@ class Connect {
         return $this->connection;
     }
 }
-
-?>

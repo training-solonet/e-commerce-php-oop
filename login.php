@@ -1,4 +1,7 @@
 <?php
+
+require_once('Config/ClassDatabase.php');
+
 session_start();
 
 if (isset($_SESSION['logins'])) {

@@ -7,7 +7,7 @@ class Login extends Connect
 
     public function __construct()
     {
-        parent::dbConn();
+        parent::__construct();
     }
 
     public function check_login($username, $password)
@@ -20,12 +20,14 @@ class Login extends Connect
 
             if (password_verify($password, $row['password'])) {
 
+                // set session
                 $_SESSION['logins'] = true;
 
-                // if (isset($_POST['remember'])) {
-                //     setcookie('id', $row['id'], time() + 60);
-                //     setcookie('key', hash('ripemd160', $row['username']), time() + 60);
-                // }
+                if (isset($_POST['remember'])) {
+                    setcookie('id', $row['id'], time() + 10);
+                    setcookie('key', hash('ripemd160', $row['username']), time() + 10);
+                }
+
                 return $row['id'];
             }
         } else {
@@ -33,9 +35,9 @@ class Login extends Connect
         }
     }
 
-    public function escape_string($value)
-    {
+    // public function escape_string($value)
+    // {
 
-        return $this->connection->real_escape_string($value);
-    }
+    //     return $this->connection->real_escape_string($value);
+    // }
 }
