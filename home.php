@@ -5,6 +5,13 @@ if (!isset($_SESSION['logins'])) {
     header('Location:login.php');
 }
 
+$pass = 123;
+
+$hash = md5($pass);
+
+echo $hash;
+
+// $2y$10$ahkW.ze7vbaR7nMXLaEc3.eF48IOqjj7D1F..WK/dsDVTIWwXl5h6
 ?>
 
 <!DOCTYPE html>

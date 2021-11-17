@@ -1,43 +1,23 @@
 <?php
 
-
-class Connect{
-
-	private $servername;
-	private $username;
-	private $password;
-	private $dbname;
-
-	protected function dbConn(){
-		$this->servername = 'localhost';
-		$this->username = 'root';
-		$this->password = '';
-		$this->dbname = 'warisanify';
-
-		$connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
-		return $connection;
-	}
-}
-
-class Connect
+class DataBase
 {
-    public $servername;
-    public $username;
-    public $password;
-    public $dbname;
 
-    public $connection;
+    private $servername;
+    private $username;
+    private $password;
+    private $dbname;
 
-    public function __construct()
+    protected $connection;
+
+    protected function dbConn()
     {
         $this->servername = 'localhost';
         $this->username = 'root';
         $this->password = '';
         $this->dbname = 'warisanify';
 
-        // mysqli_connect()
         $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
         return $this->connection;
     }
 }
-
