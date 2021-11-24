@@ -31,75 +31,110 @@ $tampil = new Kategori();
     <!-- Theme Styles -->
     <link rel="stylesheet" href="../Assets/awesome/assets/css/theme.css">
 </head>
+<!-- End Head -->
 
-<div class="u-body">
-    <h1 class="h2 mb-2">Tables</h1>
+<!-- Body -->
 
-    <!-- Breadcrumb -->
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Tables</li>
-        </ol>
-    </nav>
-    <!-- End Breadcrumb -->
+<body>
+    <!-- Header (Topbar) -->
+    <?php include 'layout/header.php' ?>
+    <!-- End Header (Topbar) -->
 
-    <!-- Card -->
-    <div class="card mb-5">
-        <!-- Card Header -->
-        <header class="card-header">
-            <h2 class="h4 card-header-title"> Table Kategori</h2>
-        </header>
-        <!-- End Card Header -->
+    <!-- Main -->
+    <main class="u-main">
+        <!-- Sidebar -->
+        <?php include 'layout/sidebar.php' ?>
+        <!-- End Sidebar -->
 
-        <!-- Crad Body -->
+        <!-- Content -->
+        <div class="u-content">
+            <!-- Content Body -->
+            <div class="u-body">
+                <h1 class="h2 mb-2">Tables</h1>
 
-        <div class="card-body pt-0">
-            <a href="Tambah-kategori.php" class="btn btn-primary btn-flat">Tambah Data</a>
-            <!-- Table -->
-            <div class="table-responsive">
-                <table class="table table-hover mb-0">
-                    <thead>
-                        <tr>
-                            <th>No</th>
-                            <!-- <th>Id Kategori</th> -->
-                            <th>Nama Kategori</th>
-                            <th>Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php $i = 1; ?>
-                        <?php foreach ($tampil->show() as $row) : ?>
-                            <tr>
-                                <td><?= $i; ?></td>
-                                <td><?= $row['nama_kategori'] ?></td>
-                                <td>
-                                    <a href="Edit-kategori.php?id=<?php echo $row['id'] ?>&&aksi=update" class="btn btn-primary">edit</a>
-                                    <a href="../Routes/Route.php?id=<?php echo $row['id'] ?>&&aksi=hapus" class="btn btn-danger">hapus</a>
-                                </td>
-                            </tr>
-                            <?php $i++; ?>
-                        <?php endforeach; ?>
-                    </tbody>
+                <!-- Breadcrumb -->
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Tables</li>
+                    </ol>
+                </nav>
+                <!-- End Breadcrumb -->
 
-                </table>
+                <!-- Card -->
+                <div class="card mb-5">
+                    <!-- Card Header -->
+                    <header class="card-header">
+                        <h2 class="h4 card-header-title"> Table Kategori</h2>
+                    </header>
+                    <!-- End Card Header -->
+
+                    <!-- Crad Body -->
+
+                    <div class="card-body pt-0">
+                        <a href="Tambah-kategori.php" class="btn btn-primary btn-flat">Tambah Data</a>
+                        <!-- Table -->
+                        <div class="table-responsive">
+                            <table class="table table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <!-- <th>Id Kategori</th> -->
+                                        <th>Nama Kategori</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php $i = 1; ?>
+                                    <?php foreach ($tampil->show() as $row) : ?>
+                                        <tr>
+                                            <td><?= $i; ?></td>
+                                            <td><?= $row['nama_kategori'] ?></td>
+                                            <td>
+                                                <a href="Edit-kategori.php?id=<?php echo $row['id'] ?>&&aksi=update" class="btn btn-primary">edit</a>
+                                                <a href="../Routes/Route.php?id=<?php echo $row['id'] ?>&&aksi=hapus" class="btn btn-danger">hapus</a>
+                                            </td>
+                                        </tr>
+                                        <?php $i++; ?>
+                                    <?php endforeach; ?>
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+
             </div>
-            <!-- End Table -->
-            <!-- Global Vendor -->
-            <script src="../Assets/awesome/assets/vendor/jquery/dist/jquery.min.js"></script>
-            <script src="../Assets/awesome/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-            <script src="../Assets/awesome/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-            <script src="../Assets/awesome/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+            <!-- End Content Body -->
 
-            <!-- Plugins -->
-            <script src="../Assets/awesome/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-            <script src="../Assets/awesome/assets/vendor/chart.js/dist/Chart.min.js"></script>
-            <script src="../Assets/awesome/assets/vendor/chartjs-plugin-style/dist/chartjs-plugin-style.min.js"></script>
+            <!-- Footer -->
+            <?php include 'layout/footer.php' ?>
+            <!-- End Footer -->
+        </div>
+        <!-- End Content -->
+    </main>
+    <!-- End Main -->
 
-            <!-- Initialization  -->
-            <script src="../Assets/awesome/assets/js/sidebar-nav.js"></script>
-            <script src="../Assets/awesome/assets/js/main.js"></script>
+    <!-- Global Vendor -->
+    <script src="../Assets/awesome/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
-            <script src="../Assets/awesome/assets/js/charts/area-chart.js"></script>
-            <script src="../Assets/awesome/assets/js/charts/area-chart-small.js"></script>
-            <script src="../Assets/awesome/assets/js/charts/doughnut-chart.js"></script>
+    <!-- Plugins -->
+    <script src="../Assets/awesome/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/chartjs-plugin-style/dist/chartjs-plugin-style.min.js"></script>
+
+    <!-- Initialization  -->
+    <script src="../Assets/awesome/assets/js/sidebar-nav.js"></script>
+    <script src="../Assets/awesome/assets/js/main.js"></script>
+
+    <script src="../Assets/awesome/assets/js/charts/area-chart.js"></script>
+    <script src="../Assets/awesome/assets/js/charts/area-chart-small.js"></script>
+    <script src="../Assets/awesome/assets/js/charts/doughnut-chart.js"></script>
+</body>
+<!-- End Body -->
+
+</html>

@@ -7,13 +7,12 @@ $id = $_GET['id'];
 $result = $edit->showUpdate($id);
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <!-- Head -->
 
 <head>
-    <title>Edit Data Kategori | WARISANIFY</title>
+    <title>Dashboard | WARISANIFY</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -34,40 +33,66 @@ $result = $edit->showUpdate($id);
     <!-- Theme Styles -->
     <link rel="stylesheet" href="../Assets/awesome/assets/css/theme.css">
 </head>
+<!-- End Head -->
+
+<!-- Body -->
 
 <body>
-    <div class="u-body">
-        <form action="../Routes/Route.php?aksi=update" method=POST>
-            <div class="card-body pt-0">
-                <!-- Text -->
-                <div class="form-group">
-                    <input type="hidden" name="id" value="<?php echo $result['id'] ?>">
+    <!-- Header (Topbar) -->
+    <?php include 'layout/header.php' ?>
+    <!-- End Header (Topbar) -->
 
-                    <label for="exampleInputText1">Nama Kategori</label>
-                    <input id="exampleInputText1" class="form-control" type="text" name="nama_kategori" value="<?php echo $result['nama_kategori'] ?>" placeholder="Placeholder">
-                </div>
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
-        </form>
-        <!-- Global Vendor -->
-        <script src="../Assets/awesome/assets/vendor/jquery/dist/jquery.min.js"></script>
-        <script src="../Assets/awesome/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-        <script src="../Assets/awesome/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-        <script src="../Assets/awesome/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Main -->
+    <main class="u-main">
+        <!-- Sidebar -->
+        <?php include 'layout/sidebar.php' ?>
+        <!-- End Sidebar -->
 
-        <!-- Plugins -->
-        <script src="../Assets/awesome/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-        <script src="../Assets/awesome/assets/vendor/chart.js/dist/Chart.min.js"></script>
-        <script src="../Assets/awesome/assets/vendor/chartjs-plugin-style/dist/chartjs-plugin-style.min.js"></script>
+        <!-- Content -->
+        <div class="u-content">
+            <!-- Content Body -->
+            <div class="u-body">
+                <form action="../Routes/Route.php?aksi=update" method=POST>
+                    <div class="card-body pt-0">
+                        <!-- Text -->
+                        <div class="form-group">
+                            <input type="hidden" name="id" value="<?php echo $result['id'] ?>">
 
-        <!-- Initialization  -->
-        <script src="../Assets/awesome/assets/js/sidebar-nav.js"></script>
-        <script src="../Assets/awesome/assets/js/main.js"></script>
+                            <label for="exampleInputText1">Nama Kategori</label>
+                            <input id="exampleInputText1" class="form-control" type="text" name="nama_kategori" value="<?php echo $result['nama_kategori'] ?>" placeholder="Placeholder">
+                        </div>
+                        <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
 
-        <script src="../Assets/awesome/assets/js/charts/area-chart.js"></script>
-        <script src="../Assets/awesome/assets/js/charts/area-chart-small.js"></script>
-        <script src="../Assets/awesome/assets/js/charts/doughnut-chart.js"></script>
+    <!-- Footer -->
+    <?php include 'layout/footer.php' ?>
+    <!-- End Footer -->
+    </div>
+    <!-- End Content -->
+    </main>
+    <!-- End Main -->
+
+    <!-- Global Vendor -->
+    <script src="../Assets/awesome/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="../Assets/awesome/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/chartjs-plugin-style/dist/chartjs-plugin-style.min.js"></script>
+
+    <!-- Initialization  -->
+    <script src="../Assets/awesome/assets/js/sidebar-nav.js"></script>
+    <script src="../Assets/awesome/assets/js/main.js"></script>
+
+    <script src="../Assets/awesome/assets/js/charts/area-chart.js"></script>
+    <script src="../Assets/awesome/assets/js/charts/area-chart-small.js"></script>
+    <script src="../Assets/awesome/assets/js/charts/doughnut-chart.js"></script>
 </body>
-</body>
-</div>
+<!-- End Body -->
 
 </html>
