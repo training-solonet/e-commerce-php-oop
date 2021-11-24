@@ -1,5 +1,10 @@
 <?php
+ fitur-kategori
+require_once('../Config/ClassDatabase.php');
+require_once('../App/ClassKategori.php');
+
 // require_once('../Config/ClassDatabase.php');
+ main
 require_once('../App/ClassLogin.php');
 require_once('../App/ClassBarang.php');
 
@@ -37,6 +42,42 @@ if ($aksi == 'register') {
 	} else {
 		header('location:../login.php');
 	}
+ fitur-kategori
+	} else if ($aksi == 'tambah') {
+
+			$koneksi = new Kategori();
+		
+			if (isset($_POST['submit'])) {
+		
+				$kategori = $_POST['nama_kategori'];
+				
+				$result = $koneksi->create($kategori);
+		
+				header('location:../Admin/kategori.php');
+			}
+		}else if ($aksi == 'update'){
+			$koneksi = new Kategori();
+		
+			if (isset($_POST['submit'])) {
+				$id = $_POST['id'];
+				$kategori = $_POST['nama_kategori'];
+				
+			$koneksi->update($id,$kategori);
+		
+				header('location:../Admin/kategori.php');
+		}
+	}else if ($aksi == 'hapus'){
+		$koneksi = new Kategori();
+		    
+			$id = $_GET['id'];
+			$result = $koneksi->hapus($id);
+			header('Location:../Admin/kategori.php');
+		
+
+	}
+	
+
+
 } elseif ($aksi == 'tambah') {
 
 	$koneksi = new Barang();
@@ -72,3 +113,4 @@ if ($aksi == 'register') {
 	$koneksi->update($id, $barang, $harga, $gambar, $detail, $kategori);
 	header('Location: ../Admin/index.php');
 }
+ main

@@ -14,7 +14,7 @@ class DataBase
     {
         $this->servername = 'localhost';
         $this->username = 'root';
-        $this->password = '';
+        $this->password = 'root';
         $this->dbname = 'warisanify';
 
         $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
