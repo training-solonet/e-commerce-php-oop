@@ -12,31 +12,27 @@ class Query extends DataBase
 
 
     // Method Register
-    public function SQLValidateUsername($username)
-    {
-        $this->sql = "SELECT * FROM user WHERE username = '" . $username . "'";
-        return $this->getResult();
-    }
-
     public function SQLRegister($username, $password)
     {
-        $password = md5($password);
-        // $password = password_hash($password, PASSWORD_DEFAULT);
+        // $password = md5($password);
+        $password = password_hash($password, PASSWORD_DEFAULT);
         $this->sql = "INSERT INTO user(username, password) VALUES ( '$username', '$password')";
-        return $this->getResult();
-    }
-
-    public function getResult()
-    {
         $this->result = $this->dbConn()->query($this->sql);
-        return $this;
+        return $this->result;
+        // return $this->getResult();
     }
 
-    public function FetchArray()
-    {
-        $row = $this->result->fetch_array();
-        return $row;
-    }
+    // public function getResult()
+    // {
+    //     $this->result = $this->dbConn()->query($this->sql);
+    //     return $this;
+    // }
+
+    // public function FetchArray()
+    // {
+    //     $row = $this->result->fetch_array();
+    //     return $row;
+    // }
 }
 
 // Class Register
@@ -47,8 +43,9 @@ class Register extends Query
     protected $password;
     protected $Cpassword;
     public $message;
+    protected $result;
 
-    public function getData($username, $password, $Cpassword)
+    public function __construct($username, $password, $Cpassword)
     {
         $this->username = $username;
         $this->password = $password;
@@ -70,16 +67,24 @@ class Register extends Query
         }
     }
 
+    public function SQLValidateUsername($username)
+    {
+        $this->sql = "SELECT * FROM user WHERE username = '$username'";
+        $this->result = $this->dbConn()->query($this->sql);
+        return $this->result;
+    }
+
     public function Register()
     {
-        $row = $this->SQLValidateUsername($this->username)->FetchArray();
-        if ($row['username'] == $this->username) {
+        $row = $this->SQLValidateUsername($this->username);
+        $resultData = $row->fetch_assoc();
+        if ($resultData['username'] == $this->username) {
             $this->message = 'Username yang anda masukan sudah pernah digunakan!.';
             return $this->message;
         } else {
             $sql = $this->SQLRegister($this->username, $this->password);
-            $_SESSION['username'] = $row['username'];
-            $_SESSION['password'] = $row['password'];
+            $_SESSION['username'] = $resultData['username'];
+            $_SESSION['password'] = $resultData['password'];
             header('location:../login.php');
         }
     }
@@ -88,25 +93,30 @@ class Register extends Query
 
 class Login extends DataBase
 {
+    protected string $username;
+    protected string $password;
 
-    public function __construct()
+    public function __construct(string $username, string $password)
     {
-        parent::dbConn();
+        $this->username = $username;
+        $this->password = $password;
+
+        return $this->check_login();
     }
 
-    public function check_login($username, $password)
+    public function check_login()
     {
-        $sql = "SELECT * FROM user WHERE username = '$username'";
-        $query = $this->connection->query($sql);
+        $sql = "SELECT * FROM user WHERE username = '$this->username'";
+        $query = $this->dbConn()->query($sql);
 
         if ($query->num_rows > 0) {
             $row = $query->fetch_assoc();
 
-            $hash = md5($password);
+            $hash = password_verify($this->password, $row["password"]);
             if ($hash == $row['password']) {
 
                 // set session
-                $_SESSION['logins'] = true;
+                $_SESSION['admin'] = true;
 
                 if (isset($_POST['remember'])) {
                     setcookie('id', $row['id'], time() + 10);
@@ -119,10 +129,4 @@ class Login extends DataBase
             return false;
         }
     }
-
-    // public function escape_string($value)
-    // {
-
-    //     return $this->connection->real_escape_string($value);
-    // }
 }
