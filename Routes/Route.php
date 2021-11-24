@@ -51,14 +51,14 @@ if ($aksi == 'register') {
 
 		$result = $koneksi->create($barang, $harga, $gambar, $detail, $kategori);
 
-		header('location:../Admin/barang.php');
+		header('location:../Admin/index.php');
 	}
 } elseif ($aksi == "hapus") {
 	$koneksi = new Barang();
 
 	$id = $_GET['id'];
 	$result = $koneksi->delete($id);
-	header('location: ../Admin/barang.php');
+	header('location: ../Admin/index.php');
 } elseif ($aksi == "edit") {
 	$koneksi = new Barang();
 
@@ -70,5 +70,5 @@ if ($aksi == 'register') {
 	$kategori = $_POST['kategori'];
 
 	$koneksi->update($id, $barang, $harga, $gambar, $detail, $kategori);
-	header('Location: ../Admin/barang.php');
+	header('Location: ../Admin/index.php');
 }

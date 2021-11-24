@@ -90,22 +90,24 @@ $tampil = new Barang();
 
                 </table>
             </div>
-            <!-- End Table -->
-            <!-- Global Vendor -->
-            <script src="../Assets/awesome/assets/vendor/jquery/dist/jquery.min.js"></script>
-            <script src="../Assets/awesome/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
-            <script src="../Assets/awesome/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
-            <script src="../Assets/awesome/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+        </div>
+    </div>
+    <!-- End Table -->
+    <!-- Global Vendor -->
+    <script src="../Assets/awesome/assets/vendor/jquery/dist/jquery.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/jquery-migrate/jquery-migrate.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/popper.js/dist/umd/popper.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
 
-            <!-- Plugins -->
-            <script src="../Assets/awesome/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
-            <script src="../Assets/awesome/assets/vendor/chart.js/dist/Chart.min.js"></script>
-            <script src="../Assets/awesome/assets/vendor/chartjs-plugin-style/dist/chartjs-plugin-style.min.js"></script>
+    <!-- Plugins -->
+    <script src="../Assets/awesome/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/chart.js/dist/Chart.min.js"></script>
+    <script src="../Assets/awesome/assets/vendor/chartjs-plugin-style/dist/chartjs-plugin-style.min.js"></script>
 
-            <!-- Initialization  -->
-            <script src="../Assets/awesome/assets/js/sidebar-nav.js"></script>
-            <script src="../Assets/awesome/assets/js/main.js"></script>
+    <!-- Initialization  -->
+    <script src="../Assets/awesome/assets/js/sidebar-nav.js"></script>
+    <script src="../Assets/awesome/assets/js/main.js"></script>
 
-            <script src="../Assets/awesome/assets/js/charts/area-chart.js"></script>
-            <script src="../Assets/awesome/assets/js/charts/area-chart-small.js"></script>
-            <script src="../Assets/awesome/assets/js/charts/doughnut-chart.js"></script>
+    <script src="../Assets/awesome/assets/js/charts/area-chart.js"></script>
+    <script src="../Assets/awesome/assets/js/charts/area-chart-small.js"></script>
+    <script src="../Assets/awesome/assets/js/charts/doughnut-chart.js"></script>
