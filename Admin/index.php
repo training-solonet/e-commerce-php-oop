@@ -1,3 +1,10 @@
+<?php
+require_once('../App/ClassBarang.php');
+require_once('../Config/ClassDatabase.php');
+
+$tampil = new Barang();
+?>
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <!-- Head -->
@@ -44,10 +51,68 @@
 			<!-- Content Body -->
 			<div class="u-body">
 
-				<div class="row">
+				<h1 class="h2 mb-2">Tables</h1>
 
+				<!-- Breadcrumb -->
+				<nav aria-label="breadcrumb">
+					<ol class="breadcrumb">
+						<li class="breadcrumb-item"><a href="index.html">Home</a></li>
+						<li class="breadcrumb-item active" aria-current="page">Tables</li>
+					</ol>
+				</nav>
+				<!-- End Breadcrumb -->
 
+				<!-- Card -->
+				<div class="card mb-5">
+					<!-- Card Header -->
+					<header class="card-header">
+						<h2 class="h4 card-header-title">Basic table</h2>
+					</header>
+					<!-- End Card Header -->
+
+					<!-- Crad Body -->
+					<div class="card-body pt-0">
+						<a href="Tambah-Barang.php">INPUT BARANG</a>
+						<!-- Table -->
+						<div class="table-responsive">
+							<table class="table table-hover mb-0">
+								<thead>
+									<tr>
+										<th>No</th>
+										<!-- <th>Id Barang</th> -->
+										<th>Nama Barang</th>
+										<th>Harga</th>
+										<th>Gambar</th>
+										<th>Detail Produk</th>
+										<th>Kategori</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									<?php $i = 1; ?>
+									<?php foreach ($tampil->show() as $row) : ?>
+										<tr>
+											<td><?= $i; ?></td>
+											<td><?= $row['nama_barang'] ?></td>
+											<td><?= "Rp. " . $row['harga'] ?></td>
+											<td><?= $row['gambar'] ?></td>
+											<td><?= $row['detail_produk'] ?></td>
+											<td><?= $row['id_kategori'] ?></td>
+											<td>
+												<a href="Edit-Barang.php?id=<?php echo $row['id'] ?>&&aksi=edit">edit</a>
+												<a href="../Routes/Route.php?id=<?php echo $row['id'] ?>&&aksi=hapus">hapus</a>
+											</td>
+										</tr>
+										<?php $i++; ?>
+									<?php endforeach; ?>
+								</tbody>
+
+							</table>
+						</div>
+					</div>
 				</div>
+				<!-- End Table -->
+
 			</div>
 			<!-- End Content Body -->
 
