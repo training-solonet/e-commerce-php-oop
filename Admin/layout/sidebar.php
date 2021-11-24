@@ -34,7 +34,7 @@
 					<ul id="menuItemUIBase" class="u-sidebar-nav-menu u-sidebar-nav-menu--second-level" style="display: none;">
 						<!-- Colors -->
 						<li class="u-sidebar-nav-menu__item">
-							<a class="u-sidebar-nav-menu__link" href="tables.html">
+							<a class="u-sidebar-nav-menu__link" href="index.php">
 								<span class="u-sidebar-nav-menu__item-title">Data Barang</span>
 							</a>
 						</li>
@@ -42,7 +42,7 @@
 
 						<!-- Typography -->
 						<li class="u-sidebar-nav-menu__item">
-							<a class="u-sidebar-nav-menu__link" href="ui-typography.html">
+							<a class="u-sidebar-nav-menu__link" href="kategori.php">
 								<span class="u-sidebar-nav-menu__item-title">Data Kategori</span>
 							</a>
 						</li>

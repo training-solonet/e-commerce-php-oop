@@ -52,7 +52,7 @@ $result = $edit->showUpdate($id);
         <div class="u-content">
             <!-- Content Body -->
             <div class="u-body">
-                <form action="../Routes/Route.php?aksi=update" method=POST>
+                <form action="../Routes/Route.php?aksi=update-kategori" method=POST>
                     <div class="card-body pt-0">
                         <!-- Text -->
                         <div class="form-group">
@@ -66,11 +66,11 @@ $result = $edit->showUpdate($id);
             </div>
         </div>
 
-    <!-- Footer -->
-    <?php include 'layout/footer.php' ?>
-    <!-- End Footer -->
-    </div>
-    <!-- End Content -->
+        <!-- Footer -->
+        <?php include 'layout/footer.php' ?>
+        <!-- End Footer -->
+        </div>
+        <!-- End Content -->
     </main>
     <!-- End Main -->
 

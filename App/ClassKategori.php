@@ -3,15 +3,10 @@ require_once('../Config/ClassDatabase.php');
 
 class Kategori extends DataBase
 {
-    public function __construct()
-    {
-        parent::dbConn();
-    }
-
     public function show()
     {
-        $query = "SELECT * FROM ketagori";
-        $result = $this->connection->query($query);
+        $query = "SELECT * FROM kategori";
+        $result = $this->dbConn()->query($query);
         $rows = [];
         while ($row = mysqli_fetch_array($result)) {
             $rows[] = $row;
@@ -22,29 +17,29 @@ class Kategori extends DataBase
 
     public function create($kategori)
     {
-        $query = "INSERT INTO ketagori (nama_kategori) 
+        $query = "INSERT INTO kategori (nama_kategori) 
                     VALUES ('$kategori')";
-        $result = $this->connection->query($query);
+        $result = $this->dbConn()->query($query);
     }
 
     public function hapus($id)
     {
-        $query = "DELETE FROM ketagori WHERE id = $id";
-        $result = $this->connection->query($query);
+        $query = "DELETE FROM kategori WHERE id = $id";
+        $result = $this->dbConn()->query($query);
     }
 
     public function showUpdate($id)
     {
-        $query = "SELECT * FROM ketagori WHERE id = $id";
-        $result = $this->connection->query($query);
+        $query = "SELECT * FROM kategori WHERE id = $id";
+        $result = $this->dbConn()->query($query);
 
         return $result->fetch_assoc();
     }
 
-    public function update($id,$kategori)
+    public function update($id, $kategori)
     {
-        $query = "UPDATE ketagori SET nama_kategori = '$kategori'  WHERE id = $id";
+        $query = "UPDATE kategori SET nama_kategori = '$kategori'  WHERE id = $id";
 
-        $result = $this->connection->query($query);
+        $result = $this->dbConn()->query($query);
     }
 }

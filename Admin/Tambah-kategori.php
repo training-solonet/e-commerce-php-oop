@@ -45,18 +45,18 @@
 			<div class="u-body">
 
 
-					<div class="u-body">
-						<form action="../Routes/Route.php?aksi=tambah" method=POST>
-							<div class="card-body pt-0">
-								<!-- Text -->
-								<div class="form-group">
-									<label for="exampleInputText1">Nama Kategori</label>
-									<input id="exampleInputText1" class="form-control" type="text" name="nama_kategori" placeholder="Placeholder">
-								</div>
-								<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+				<div class="u-body">
+					<form action="../Routes/Route.php?aksi=tambah-kategori" method=POST>
+						<div class="card-body pt-0">
+							<!-- Text -->
+							<div class="form-group">
+								<label for="exampleInputText1">Nama Kategori</label>
+								<input id="exampleInputText1" class="form-control" type="text" name="nama_kategori" placeholder="Placeholder">
 							</div>
-						</form>
-					</div>
+							<button type="submit" name="submit" class="btn btn-primary">Submit</button>
+						</div>
+					</form>
+				</div>
 
 			</div>
 			<!-- End Content Body -->

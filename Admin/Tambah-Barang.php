@@ -46,7 +46,7 @@
 
 
                 <div class="u-body">
-                    <form action="../Routes/Route.php?aksi=tambah" method=POST>
+                    <form action="../Routes/Route.php?aksi=tambah-barang" method=POST>
                         <div class="card-body pt-0">
                             <!-- Text -->
                             <div class="form-group">

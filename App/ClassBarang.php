@@ -6,7 +6,7 @@ class Barang extends DataBase
 
     public function show()
     {
-        $query = "SELECT * FROM barang";
+        $query = "SELECT barang.*, kategori.* FROM barang JOIN kategori ON barang.id_kategori = kategori.id";
         $result = $this->dbConn()->query($query);
         // $query = mysqli_query($this->connection, "SELECT * from barang");
 

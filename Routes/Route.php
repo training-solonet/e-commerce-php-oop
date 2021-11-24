@@ -1,10 +1,10 @@
 <?php
- fitur-kategori
+
 require_once('../Config/ClassDatabase.php');
 require_once('../App/ClassKategori.php');
 
 // require_once('../Config/ClassDatabase.php');
- main
+
 require_once('../App/ClassLogin.php');
 require_once('../App/ClassBarang.php');
 
@@ -42,43 +42,36 @@ if ($aksi == 'register') {
 	} else {
 		header('location:../login.php');
 	}
- fitur-kategori
-	} else if ($aksi == 'tambah') {
+} else if ($aksi == 'tambah-kategori') {
 
-			$koneksi = new Kategori();
-		
-			if (isset($_POST['submit'])) {
-		
-				$kategori = $_POST['nama_kategori'];
-				
-				$result = $koneksi->create($kategori);
-		
-				header('location:../Admin/kategori.php');
-			}
-		}else if ($aksi == 'update'){
-			$koneksi = new Kategori();
-		
-			if (isset($_POST['submit'])) {
-				$id = $_POST['id'];
-				$kategori = $_POST['nama_kategori'];
-				
-			$koneksi->update($id,$kategori);
-		
-				header('location:../Admin/kategori.php');
-		}
-	}else if ($aksi == 'hapus'){
-		$koneksi = new Kategori();
-		    
-			$id = $_GET['id'];
-			$result = $koneksi->hapus($id);
-			header('Location:../Admin/kategori.php');
-		
+	$koneksi = new Kategori();
 
+	if (isset($_POST['submit'])) {
+
+		$kategori = $_POST['nama_kategori'];
+
+		$result = $koneksi->create($kategori);
+
+		header('location:../Admin/kategori.php');
 	}
-	
+} else if ($aksi == 'update-kategori') {
+	$koneksi = new Kategori();
 
+	if (isset($_POST['submit'])) {
+		$id = $_POST['id'];
+		$kategori = $_POST['nama_kategori'];
 
-} elseif ($aksi == 'tambah') {
+		$koneksi->update($id, $kategori);
+
+		header('location:../Admin/kategori.php');
+	}
+} else if ($aksi == 'hapus-kategori') {
+	$koneksi = new Kategori();
+
+	$id = $_GET['id'];
+	$result = $koneksi->hapus($id);
+	header('Location:../Admin/kategori.php');
+} elseif ($aksi == 'tambah-barang') {
 
 	$koneksi = new Barang();
 
@@ -94,13 +87,13 @@ if ($aksi == 'register') {
 
 		header('location:../Admin/index.php');
 	}
-} elseif ($aksi == "hapus") {
+} elseif ($aksi == "hapus-barang") {
 	$koneksi = new Barang();
 
 	$id = $_GET['id'];
 	$result = $koneksi->delete($id);
 	header('location: ../Admin/index.php');
-} elseif ($aksi == "edit") {
+} elseif ($aksi == "edit-barang") {
 	$koneksi = new Barang();
 
 	$id = $_POST['id'];
@@ -113,4 +106,3 @@ if ($aksi == 'register') {
 	$koneksi->update($id, $barang, $harga, $gambar, $detail, $kategori);
 	header('Location: ../Admin/index.php');
 }
- main

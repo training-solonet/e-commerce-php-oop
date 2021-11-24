@@ -20,6 +20,7 @@ $tampil = new Kategori();
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
 
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
     <!-- Web Fonts -->
     <link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -75,7 +76,7 @@ $tampil = new Kategori();
                         <a href="Tambah-kategori.php" class="btn btn-primary btn-flat">Tambah Data</a>
                         <!-- Table -->
                         <div class="table-responsive">
-                            <table class="table table-hover mb-0">
+                            <table id="tabel" class="table table-hover mb-0">
                                 <thead>
                                     <tr>
                                         <th>No</th>
@@ -91,8 +92,8 @@ $tampil = new Kategori();
                                             <td><?= $i; ?></td>
                                             <td><?= $row['nama_kategori'] ?></td>
                                             <td>
-                                                <a href="Edit-kategori.php?id=<?php echo $row['id'] ?>&&aksi=update" class="btn btn-primary">edit</a>
-                                                <a href="../Routes/Route.php?id=<?php echo $row['id'] ?>&&aksi=hapus" class="btn btn-danger">hapus</a>
+                                                <a href="Edit-kategori.php?id=<?php echo $row['id'] ?>&&aksi=update-kategori" class="btn btn-primary">edit</a>
+                                                <a href="../Routes/Route.php?id=<?php echo $row['id'] ?>&&aksi=hapus-kategori" class="btn btn-danger">hapus</a>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
@@ -134,6 +135,13 @@ $tampil = new Kategori();
     <script src="../Assets/awesome/assets/js/charts/area-chart.js"></script>
     <script src="../Assets/awesome/assets/js/charts/area-chart-small.js"></script>
     <script src="../Assets/awesome/assets/js/charts/doughnut-chart.js"></script>
+    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('#tabel').DataTable();
+        });
+    </script>
 </body>
 <!-- End Body -->
 

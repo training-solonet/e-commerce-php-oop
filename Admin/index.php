@@ -19,6 +19,7 @@ $tampil = new Barang();
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+	<link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
 
 	<!-- Web Fonts -->
@@ -75,7 +76,7 @@ $tampil = new Barang();
 						<a href="Tambah-Barang.php">INPUT BARANG</a>
 						<!-- Table -->
 						<div class="table-responsive">
-							<table class="table table-hover mb-0">
+							<table id="tabel" class="table table-hover mb-0">
 								<thead>
 									<tr>
 										<th>No</th>
@@ -97,10 +98,10 @@ $tampil = new Barang();
 											<td><?= "Rp. " . $row['harga'] ?></td>
 											<td><?= $row['gambar'] ?></td>
 											<td><?= $row['detail_produk'] ?></td>
-											<td><?= $row['id_kategori'] ?></td>
+											<td><?= $row['nama_kategori'] ?></td>
 											<td>
-												<a href="Edit-Barang.php?id=<?php echo $row['id'] ?>&&aksi=edit">edit</a>
-												<a href="../Routes/Route.php?id=<?php echo $row['id'] ?>&&aksi=hapus">hapus</a>
+												<a href="Edit-Barang.php?id=<?php echo $row['id'] ?>&&aksi=edit-barang">edit</a>
+												<a href="../Routes/Route.php?id=<?php echo $row['id'] ?>&&aksi=hapus-barang">hapus</a>
 											</td>
 										</tr>
 										<?php $i++; ?>
@@ -142,6 +143,13 @@ $tampil = new Barang();
 	<script src="../Assets/awesome/assets/js/charts/area-chart.js"></script>
 	<script src="../Assets/awesome/assets/js/charts/area-chart-small.js"></script>
 	<script src="../Assets/awesome/assets/js/charts/doughnut-chart.js"></script>
+	<script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+	<script>
+		$(document).ready(function() {
+			$('#tabel').DataTable();
+		});
+	</script>
 </body>
 <!-- End Body -->
 
