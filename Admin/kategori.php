@@ -31,6 +31,7 @@ $tampil = new Kategori();
 
     <!-- Theme Styles -->
     <link rel="stylesheet" href="../Assets/awesome/assets/css/theme.css">
+
 </head>
 <!-- End Head -->
 
@@ -93,7 +94,7 @@ $tampil = new Kategori();
                                             <td><?= $row['nama_kategori'] ?></td>
                                             <td>
                                                 <a href="Edit-kategori.php?id=<?php echo $row['id'] ?>&&aksi=update-kategori" class="btn btn-primary">edit</a>
-                                                <a href="../Routes/Route.php?id=<?php echo $row['id'] ?>&&aksi=hapus-kategori" class="btn btn-danger">hapus</a>
+                                                <button onclick="delete_data(<?php echo $row['id'] ?>)" class="btn btn-danger">hapus</button>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
@@ -136,11 +137,42 @@ $tampil = new Kategori();
     <script src="../Assets/awesome/assets/js/charts/area-chart-small.js"></script>
     <script src="../Assets/awesome/assets/js/charts/doughnut-chart.js"></script>
     <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <script>
         $(document).ready(function() {
             $('#tabel').DataTable();
         });
+
+        function delete_data(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+            })
+            swalWithBootstrapButtons.fire({
+                title: 'Konfirmasi !',
+                text: "Anda Akan Menghapus Data ?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus !',
+                cancelButtonText: 'Batal',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+
+                    window.location.href = "../Routes/Route.php?id=" + id + "&&aksi=hapus-kategori";
+
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    swalWithBootstrapButtons.fire(
+                        'Batal',
+                        'Data tidak dihapus',
+                        'error'
+                    )
+                }
+            })
+        }
     </script>
 </body>
 <!-- End Body -->
