@@ -1,3 +1,11 @@
+<?php
+require_once('../App/ClassBarang.php');
+$show = new Barang();
+
+$rows = $show->showKategori();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 <!-- Head -->
@@ -20,6 +28,7 @@
     <!-- Components Vendor Styles -->
     <link rel="stylesheet" href="../Assets/awesome/assets/vendor/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="../Assets/awesome/assets/vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <!-- Theme Styles -->
     <link rel="stylesheet" href="../Assets/awesome/assets/css/theme.css">
@@ -46,7 +55,7 @@
 
 
                 <div class="u-body">
-                    <form action="../Routes/Route.php?aksi=tambah-barang" method=POST>
+                    <form action="../Routes/Route.php?aksi=tambah-barang" method=POST enctype="multipart/from-data">
                         <div class="card-body pt-0">
                             <!-- Text -->
                             <div class="form-group">
@@ -59,8 +68,8 @@
                                     <input type="text" name="harga" class="form-control" id="exampleInputPassword1">
                                 </div>
                                 <div class="mb-3">
-                                    <label for="exampleInputEmail1" class="form-label">Gambar</label>
-                                    <input type="text" name="gambar" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                    <label class="input-group-text" for="inputGroupFile01"></label>
+                                    <input type="file" name="gambar" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                                 </div>
                                 <div class="mb-3">
                                     <label for="exampleInputEmail1" class="form-label">Detail Barang</label>
@@ -69,7 +78,10 @@
                                 <div class="mb-3">
                                     <select name="kategori" class="form-select" aria-label="Default select example">
                                         <option selected>Pilih Kategori</option>
-                                        <option value="1">1</option>
+                                        <!-- <option value="1">1</option> -->
+                                        <?php foreach ($rows as $tampil) : ?>
+                                            <option value="<?php echo $tampil['kode_kategori'] ?>"><?php echo $tampil['nama_kategori'] ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
