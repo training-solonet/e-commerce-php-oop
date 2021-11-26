@@ -1,6 +1,9 @@
 <?php
 require_once('../Config/ClassDatabase.php');
 
+//start session
+session_start();
+
 class Kategori extends DataBase
 {
     public function show()
@@ -20,6 +23,8 @@ class Kategori extends DataBase
         $query = "INSERT INTO kategori (nama_kategori) 
                     VALUES ('$kategori')";
         $result = $this->dbConn()->query($query);
+
+        $_SESSION['status'] = true;
     }
 
     public function hapus($id)
@@ -41,5 +46,6 @@ class Kategori extends DataBase
         $query = "UPDATE kategori SET nama_kategori = '$kategori'  WHERE id = $id";
 
         $result = $this->dbConn()->query($query);
+        $_SESSION['sukses'] = true;
     }
 }

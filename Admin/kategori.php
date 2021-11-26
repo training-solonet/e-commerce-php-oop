@@ -1,7 +1,6 @@
 <?php
 require_once('../App/ClassKategori.php');
 require_once('../Config/ClassDatabase.php');
-
 $tampil = new Kategori();
 ?>
 
@@ -31,6 +30,11 @@ $tampil = new Kategori();
 
     <!-- Theme Styles -->
     <link rel="stylesheet" href="../Assets/awesome/assets/css/theme.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
+
 </head>
 <!-- End Head -->
 
@@ -66,14 +70,24 @@ $tampil = new Kategori();
                 <div class="card mb-5">
                     <!-- Card Header -->
                     <header class="card-header">
-                        <h2 class="h4 card-header-title"> Table Kategori</h2>
+                        <div class="row">
+                            <div class="col-6">
+                                <h2 class="h4 card-header-title"> Table Kategori</h2>
+                            </div>
+                            <div class="col-6">
+                                <a href="Tambah-kategori.php">
+                                    <button type="button" class="btn btn-primary btn-flat float-right">
+                                        <i class="far fa-plus-square"> Tambah Data</i>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
                     </header>
                     <!-- End Card Header -->
 
                     <!-- Crad Body -->
 
                     <div class="card-body pt-0">
-                        <a href="Tambah-kategori.php" class="btn btn-primary btn-flat">Tambah Data</a>
                         <!-- Table -->
                         <div class="table-responsive">
                             <table id="tabel" class="table table-hover mb-0">
@@ -92,8 +106,14 @@ $tampil = new Kategori();
                                             <td><?= $i; ?></td>
                                             <td><?= $row['nama_kategori'] ?></td>
                                             <td>
-                                                <a href="Edit-kategori.php?id=<?php echo $row['id'] ?>&&aksi=update-kategori" class="btn btn-primary">edit</a>
-                                                <a href="../Routes/Route.php?id=<?php echo $row['id'] ?>&&aksi=hapus-kategori" class="btn btn-danger">hapus</a>
+                                                <a href="Edit-kategori.php?id=<?php echo $row['id'] ?>&&aksi=update-kategori">
+                                                    <button type="button" class="btn btn-primary">
+                                                        <i class="far fa-edit"></i>
+                                                    </button></a>
+
+                                                <button type="button" onclick="delete_data(<?php echo $row['id'] ?>)" class="btn btn-primary">
+                                                    <i class="fas fa-trash"></i>
+                                                </button></a>
                                             </td>
                                         </tr>
                                         <?php $i++; ?>
@@ -136,11 +156,72 @@ $tampil = new Kategori();
     <script src="../Assets/awesome/assets/js/charts/area-chart-small.js"></script>
     <script src="../Assets/awesome/assets/js/charts/doughnut-chart.js"></script>
     <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <?php
+    if ($_SESSION['status']) {
+    ?>
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Data Berhasil Ditambahkan',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+    <?php
+    } else if ($_SESSION['sukses']) {
+    ?>
+        <script>
+            Swal.fire({
+                position: 'top-end',
+                icon: 'success',
+                title: 'Data Berhasil Diedit',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        </script>
+
+    <?php }
+    unset($_SESSION['status']);
+    unset($_SESSION['sukses']);
+    ?>
 
     <script>
         $(document).ready(function() {
             $('#tabel').DataTable();
         });
+
+        function delete_data(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+            })
+            swalWithBootstrapButtons.fire({
+                title: 'Konfirmasi !',
+                text: "Anda Akan Menghapus Data ?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Hapus !',
+                cancelButtonText: 'Batal',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.value) {
+
+                    window.location.href = "../Routes/Route.php?id=" + id + "&&aksi=hapus-kategori";
+
+                } else if (result.dismiss === Swal.DismissReason.cancel) {
+                    swalWithBootstrapButtons.fire(
+                        'Batal',
+                        'Data tidak dihapus',
+                        'error'
+                    )
+                }
+            })
+        }
     </script>
 </body>
 <!-- End Body -->

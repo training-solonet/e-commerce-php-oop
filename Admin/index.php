@@ -19,8 +19,8 @@ $tampil = new Barang();
 
 	<!-- Favicon -->
 	<link rel="shortcut icon" href="favicon.png" type="image/x-icon">
-	<link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
+	<link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
 
 	<!-- Web Fonts -->
 	<link href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
@@ -31,6 +31,10 @@ $tampil = new Barang();
 
 	<!-- Theme Styles -->
 	<link rel="stylesheet" href="../Assets/awesome/assets/css/theme.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+
 </head>
 <!-- End Head -->
 
@@ -67,13 +71,23 @@ $tampil = new Barang();
 				<div class="card mb-5">
 					<!-- Card Header -->
 					<header class="card-header">
-						<h2 class="h4 card-header-title">Basic table</h2>
+						<div class="row">
+							<div class="col-6">
+								<h2 class="h4 card-header-title"> Table Barang</h2>
+							</div>
+							<div class="col-6">
+								<a href="Tambah-Barang.php">
+									<button type="button" class="btn btn-primary btn-flat float-right">
+										<i class="far fa-plus-square"> Tambah Data</i>
+									</button>
+								</a>
+							</div>
+						</div>
 					</header>
 					<!-- End Card Header -->
 
 					<!-- Crad Body -->
 					<div class="card-body pt-0">
-						<a href="Tambah-Barang.php">INPUT BARANG</a>
 						<!-- Table -->
 						<div class="table-responsive">
 							<table id="tabel" class="table table-hover mb-0">
