@@ -65,7 +65,7 @@ if ($aksi == 'register') {
 		$kategori = $_POST['nama_kategori'];
 
 		$koneksi->update($id, $kategori);
-
+		
 		header('location:../Admin/kategori.php');
 	}
 } else if ($aksi == 'hapus-kategori') {
@@ -98,7 +98,9 @@ if ($aksi == 'register') {
 	$id = $_GET['id'];
 	$result = $koneksi->delete($id);
 	header('location: ../Admin/index.php');
+
 } elseif ($aksi == "edit-barang") {
+
 	$koneksi = new Barang();
 
 	if (isset($_POST['submit'])) {
