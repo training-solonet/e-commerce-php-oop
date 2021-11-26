@@ -6,6 +6,7 @@ $edit = new Barang();
 
 $id = $_GET['id'];
 $result = $edit->showUpdate($id);
+$tampil = $edit->showKategori();
 
 ?>
 
@@ -55,7 +56,7 @@ $result = $edit->showUpdate($id);
         <div class="u-content">
             <!-- Content Body -->
             <div class="u-body">
-                <form action="../Routes/Route.php?aksi=update-barang" method=POST>
+                <form action="../Routes/Route.php?aksi=edit-barang" method=POST>
                     <div class="card-body pt-0">
                         <!-- Text -->
                         <div class="form-group">
@@ -78,8 +79,15 @@ $result = $edit->showUpdate($id);
                             </div>
                             <div class="mb-3">
                                 <select name="kategori" class="form-select" aria-label="Default select example">
-                                    <option selected>Pilih Kategori</option>
-                                    <option value="1">1</option>
+                                    <?php foreach ($tampil as $show) : ?>
+                                        <?php
+                                        if ($result['id_kategori'] == $show['id']) {
+                                            echo '<option ' . "selected" . ' value="' . $result["id"] . '">' . $show["nama_kategori"] . '</option>';
+                                        } else {
+                                            echo '<option ' . ' value="' . $result["id"] . '">' . $show["nama_kategori"] . '</option>';
+                                        }
+                                        ?>
+                                    <?php endforeach; ?>
                                 </select>
                             </div>
                         </div>

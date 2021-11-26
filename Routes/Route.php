@@ -8,6 +8,9 @@ require_once('../App/ClassKategori.php');
 require_once('../App/ClassLogin.php');
 require_once('../App/ClassBarang.php');
 
+$koneksi = new Barang();
+
+
 // Function Register
 session_start();
 
@@ -66,20 +69,22 @@ if ($aksi == 'register') {
 		header('location:../Admin/kategori.php');
 	}
 } else if ($aksi == 'hapus-kategori') {
+
 	$koneksi = new Kategori();
 
-	$id = $_GET['id'];
+	$id = $_GET['idK'];
 	$result = $koneksi->hapus($id);
 	header('Location:../Admin/kategori.php');
 } elseif ($aksi == 'tambah-barang') {
 
-	$koneksi = new Barang();
-
 	if (isset($_POST['submit'])) {
+
+		$gambar = $_FILES['gambar']['name'];
+		$tmp = $_FILES['gambar']['tmp_name'];
+		move_uploaded_file($tmp, '../Assets/gambar/' . $gambar);
 
 		$barang = $_POST['barang'];
 		$harga = $_POST['harga'];
-		$gambar = $_POST['gambar'];
 		$detail = $_POST['detail'];
 		$kategori = $_POST['kategori'];
 
@@ -98,13 +103,16 @@ if ($aksi == 'register') {
 
 	$koneksi = new Barang();
 
-	$id = $_POST['id'];
-	$barang = $_POST['barang'];
-	$harga = $_POST['harga'];
-	$gambar = $_POST['gambar'];
-	$detail = $_POST['detail'];
-	$kategori = $_POST['kategori'];
+	if (isset($_POST['submit'])) {
 
-	$koneksi->update($id, $barang, $harga, $gambar, $detail, $kategori);
-	header('Location: ../Admin/index.php');
+		$id = $_POST['id'];
+		$barang = $_POST['barang'];
+		$harga = $_POST['harga'];
+		$gambar = $_POST['gambar'];
+		$detail = $_POST['detail'];
+		$kategori = $_POST['kategori'];
+
+		$koneksi->update($id, $barang, $harga, $gambar, $detail, $kategori);
+		header('Location: ../Admin/index.php');
+	}
 }

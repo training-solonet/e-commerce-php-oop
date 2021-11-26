@@ -110,12 +110,12 @@ $tampil = new Barang();
 											<td><?= $i; ?></td>
 											<td><?= $row['nama_barang'] ?></td>
 											<td><?= "Rp. " . $row['harga'] ?></td>
-											<td><?= $row['gambar'] ?></td>
+											<td><img width="120" height="150" style="object-fit: contain; background-color: #333;" src="../Assets/gambar/ <?php echo $row['gambar'] ?>"></td>
 											<td><?= $row['detail_produk'] ?></td>
 											<td><?= $row['nama_kategori'] ?></td>
 											<td>
-												<a href="Edit-Barang.php?id=<?php echo $row['id'] ?>&&aksi=edit-barang">edit</a>
-												<a href="../Routes/Route.php?id=<?php echo $row['id'] ?>&&aksi=hapus-barang">hapus</a>
+												<a href="Edit-Barang.php?id=<?php echo $row['id_barang'] ?>&&aksi=edit-barang">edit</a>
+												<a href="../Routes/Route.php?id=<?php echo $row['id_barang'] ?>&&aksi=hapus-barang">hapus</a>
 											</td>
 										</tr>
 										<?php $i++; ?>
