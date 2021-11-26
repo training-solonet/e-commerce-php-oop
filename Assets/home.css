@@ -126,7 +126,7 @@ section.hero .hero-text h3 {
 }
 
 section.best-seller {
-  width: 90%;
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -140,7 +140,7 @@ section.best-seller {
 }
 
 section.best-seller h1 {
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 32px;
 }
 
@@ -253,8 +253,8 @@ section.best-seller .show-more {
   background-color: #000;
   border: 3px solid #000;
   color: #fff;
-  padding: .8rem;
-  font-size: 1rem;
+  padding: 1rem;
+  font-size: 1.5rem;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -381,9 +381,13 @@ section.offering {
   row-gap: 32px;
   margin: auto;
   width: 70%;
-  height: 700px;
+  height: 900px;
   margin-bottom: 400px;
   font-family: "GT Alpina Fine Trial Rg";
+}
+
+section.offering .offering-head {
+  font-size: 3rem;
 }
 
 section.offering .offering-container {
@@ -462,8 +466,8 @@ section.offering .offering-container .offering-main {
 }
 
 section.footer {
-  background-image: url(pict/footer.png);
-  height: 900px;
+  background-image: url(pict/home-footer.png);
+  height: 1200px;
   background-size: cover;
   background-position: center;
   display: -webkit-box;
@@ -479,6 +483,7 @@ section.footer {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  gap: 7vw;
 }
 
 section.footer .logo {
@@ -496,15 +501,40 @@ section.footer .footer-container {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   color: #fff;
+  -webkit-column-gap: 2em;
+          column-gap: 2em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-section.footer .footer-container .contact-us {
-  font-size: 1.5em;
+section.footer .footer-container .footer-container-left h2 {
+  font-weight: unset;
 }
 
-section.footer .footer-container .find-us {
+section.footer .footer-container .footer-container-left .find-us ul {
   list-style-type: none;
+}
+
+section.footer .footer-container hr {
+  height: 100%;
+}
+
+section.footer .footer-container .footer-container-right h2 {
+  font-weight: unset;
+}
+
+section.footer .footer-container .footer-container-right .feature ul {
+  list-style-type: none;
+}
+
+section.footer .footer-container div:not(:last-child) {
+  margin-bottom: 4em;
 }
 
 @media screen and (max-width: 768px) {
@@ -631,8 +661,9 @@ section.footer .footer-container .find-us {
   }
   section.best-seller .card-container .card:nth-child(1) {
     z-index: unset;
-    background: inherit;
-    mix-blend-mode: unset;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)));
+    background: linear-gradient(rgba(0, 0, 0, 0.5));
+    mix-blend-mode: overlay;
     -webkit-transform: unset;
             transform: unset;
     left: unset;
@@ -647,7 +678,8 @@ section.footer .footer-container .find-us {
   section.best-seller .card-container .card:nth-child(3) {
     z-index: unset;
     left: unset;
-    background: inherit;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)));
+    background: linear-gradient(rgba(0, 0, 0, 0.5));
     mix-blend-mode: none;
     -webkit-transform: unset;
             transform: unset;

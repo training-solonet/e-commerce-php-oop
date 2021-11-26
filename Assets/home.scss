@@ -102,7 +102,7 @@ section.hero {
 
 
 section.best-seller {
-    width: 90%;
+    width: 80%;
     display: flex;
     justify-items: center;
     flex-direction: column;
@@ -110,7 +110,7 @@ section.best-seller {
     font-family: "GT Alpina Fine Trial Rg";
 
     h1 {
-        font-size: 2rem;
+        font-size: 3rem;
         margin-bottom: 32px;
     }
 
@@ -212,8 +212,8 @@ section.best-seller {
         background-color: #000;
         border: 3px solid #000;
         color: #fff;
-        padding: .8rem;
-        font-size: 1rem;
+        padding: 1rem;
+        font-size: 1.5rem;
         width: fit-content;
         cursor: pointer;
         transition: .3s ease all;
@@ -315,9 +315,13 @@ section.offering {
     row-gap: 32px;
     margin: auto;
     width: 70%;
-    height: 700px;
+    height: 900px;
     margin-bottom: 400px;
     font-family: "GT Alpina Fine Trial Rg";
+
+    .offering-head {
+        font-size: 3rem;
+    }
 
     .offering-container {
         height: 100%;
@@ -377,14 +381,16 @@ section.offering {
 
 
 section.footer {
-    background-image: url(pict/footer.png);
-    height: 900px;
+    background-image: url(pict/home-footer.png);
+    height: 1200px;
     background-size: cover;
     background-position: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 7vw;
+
 
     .logo {
         font-size: 3em;
@@ -399,15 +405,50 @@ section.footer {
 
     .footer-container {
         display: flex;
+        flex-direction: row;
         color: #fff;
+        column-gap: 2em;
+        align-items: center;
+        // background-color: red;
 
-        .contact-us {
-            font-size: 1.5em;
+        .footer-container-left {
+            h2 {
+                font-weight: unset;
+            }
+
+            // .contact-us {
+
+            // }
+
+            .find-us {
+                ul {
+                    list-style-type: none;
+                }
+
+            }
         }
 
-        .find-us {
-            list-style-type: none;
+        hr {
+            height: 100%;
         }
+
+        .footer-container-right {
+            h2 {
+                font-weight: unset;
+            }
+
+            .feature {
+                ul {
+                    list-style-type: none;
+                }
+            }
+
+            .special-thanks {}
+        }
+    }
+
+    .footer-container div:not(:last-child) {
+        margin-bottom: 4em;
     }
 }
 
@@ -438,6 +479,7 @@ section.footer {
 
 
     section.best-seller {
+
         overflow: hidden;
 
         .card-container {
@@ -543,10 +585,11 @@ section.footer {
                 transform: unset;
             }
 
+
             .card:nth-child(1) {
                 z-index: unset;
-                background: inherit;
-                mix-blend-mode: unset;
+                background: linear-gradient(rgba(0, 0, 0, .5));
+                mix-blend-mode: overlay;
                 transform: unset;
                 left: unset;
 
@@ -563,7 +606,7 @@ section.footer {
             .card:nth-child(3) {
                 z-index: unset;
                 left: unset;
-                background: inherit;
+                background: linear-gradient(rgba(0, 0, 0, .5));
                 mix-blend-mode: none;
                 transform: unset;
 
