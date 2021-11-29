@@ -1,12 +1,13 @@
 <?php
 
-require_once('../Config/ClassDatabase.php');
-require_once('../App/ClassKategori.php');
-
 // require_once('../Config/ClassDatabase.php');
 
-require_once('../App/ClassLogin.php');
+
+require_once('../Config/ClassDatabase.php');
 require_once('../App/ClassBarang.php');
+// use Barang\Barang;
+require_once('../App/ClassLogin.php');
+require_once('../App/ClassKategori.php');
 
 $koneksi = new Barang();
 

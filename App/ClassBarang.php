@@ -1,5 +1,10 @@
 <?php
-require_once('../Config/ClassDatabase.php');
+// namespace Barang;
+include_once('../Config/ClassDatabase.php');
+// use DataBase\DataBase;
+// use Barang\Barang;
+
+
 
 class Barang extends DataBase
 {

@@ -1,5 +1,6 @@
 <?php
-
+// namespace DataBase;
+// use Mysqli;
 class DataBase
 {
 
@@ -14,7 +15,7 @@ class DataBase
     {
         $this->servername = 'localhost';
         $this->username = 'root';
-        $this->password = '';
+        $this->password = '123';
         $this->dbname = 'warisanify';
 
         $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);

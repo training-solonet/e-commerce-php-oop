@@ -1,7 +1,8 @@
 <?php
 
 
-require_once('../Config/ClassDatabase.php');
+// require_once('../Config/ClassDatabase.php');
+// use DataBase\DataBase;
 
 // Class Query
 class Query extends DataBase
