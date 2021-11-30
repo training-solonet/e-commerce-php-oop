@@ -159,7 +159,7 @@ $tampil = new Kategori();
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <?php
-    if ($_SESSION['status']) {
+    if (isset($_SESSION['status'])) {
     ?>
         <script>
             Swal.fire({
@@ -171,7 +171,7 @@ $tampil = new Kategori();
             })
         </script>
     <?php
-    } else if ($_SESSION['sukses']) {
+    } else if (isset($_SESSION['sukses'])) {
     ?>
         <script>
             Swal.fire({
