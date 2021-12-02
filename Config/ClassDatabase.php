@@ -26,3 +26,4 @@ class DataBase
         return $this->connection;
     }
 }
+?>
