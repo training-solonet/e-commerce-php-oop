@@ -1,6 +1,12 @@
 <?php
+// namespace Barang;
 require_once('../Config/ClassDatabase.php');
+
+// include('Config/ClassDatabase.php');
+// require_once('Config/ClassDatabase.php');
+
 session_start();
+
 class Barang extends DataBase
 {
 

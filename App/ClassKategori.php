@@ -1,5 +1,6 @@
 <?php
 require_once('../Config/ClassDatabase.php');
+// use DataBase\DataBase;
 
 class Kategori extends DataBase
 {
