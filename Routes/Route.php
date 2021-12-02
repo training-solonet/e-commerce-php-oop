@@ -1,11 +1,11 @@
 <?php
+// session_start();
 
 // require_once('../Config/ClassDatabase.php');
 
 
-require_once('../Config/ClassDatabase.php');
+// require_once('../Config/ClassDatabase.php');
 require_once('../App/ClassBarang.php');
-// use Barang\Barang;
 require_once('../App/ClassLogin.php');
 require_once('../App/ClassKategori.php');
 
@@ -13,14 +13,13 @@ $koneksi = new Barang();
 
 
 // Function Register
-session_start();
 
 $aksi = $_GET['aksi'];
 
 if ($aksi == 'register') {
 
 	if (isset($_POST['submit'])) {
-		$register = new Register($_POST['username'], $_POST['password'], $_POST['Cpassword']);
+		$register = new Register($_POST['username'], $_POST['password'], $_POST['Cpassword'], $_POST["role"]);
 		echo "<script>
             alert('$register->message');
             window.location ='../register.php';
@@ -28,15 +27,27 @@ if ($aksi == 'register') {
 	}
 } else if ($aksi == 'login') {
 
-	$login = new Login($_POST['username'], $_POST['password']);
+	$login = new Login($_POST['username'], $_POST['password'], $_POST["role"]);
 
 	if (isset($_POST['submit'])) {
 
 		$cek = $login->check_login();
 
 		if ($cek) {
-			$_SESSION['logins'] = true;
-			header('location: ../home.php');
+
+			if($_COOKIE["id"] == $row["id"]){
+				$_SESSION["login"] == true;
+			}
+
+			if(isset($_SESSION["login"])){
+				if($_SESSION["role"] == "admin"){
+					header('location: ../Admin/index.php');
+				}
+				if($_SESSION["role"] == "user"){
+					header('location: ../home.php');
+				}
+			}
+
 		} else {
 			echo "<script>
 				alert('username atau password salah');

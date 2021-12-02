@@ -4,7 +4,13 @@ require_once('Config/ClassDatabase.php');
 
 session_start();
 
-if (isset($_SESSION['logins'])) {
+if (isset($_SESSION['login'])) {
+  if($_SESSION["role"] == "admin")
+  header('Location: Admin/index.php');
+}
+
+if (isset($_SESSION['login'])) {
+  if($_SESSION["role"] == "user")
   header('Location: home.php');
 }
 
@@ -40,6 +46,9 @@ if (isset($_SESSION['logins'])) {
           <div class="mb-3">
             <label for="password" class="form-label">Password</label>
             <input type="password" name="password" class="form-control p-md-2" id="password" />
+          </div>
+          <div class="mb-3 form-check">
+            <input type="hidden" name="role" value="user" class="form-check-input" id="exampleCheck1">
           </div>
           <div class="mb-3 form-check">
             <input type="checkbox" name="remember" class="form-check-input" id="exampleCheck1">

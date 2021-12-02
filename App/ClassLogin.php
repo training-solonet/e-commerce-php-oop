@@ -1,6 +1,4 @@
 <?php
-
-
 // require_once('../Config/ClassDatabase.php');
 // use DataBase\DataBase;
 
@@ -11,29 +9,14 @@ class Query extends DataBase
     protected $sql;
     protected $result;
 
-
     // Method Register
-    public function SQLRegister($username, $password)
+    public function SQLRegister($username, $password, $role)
     {
-        // $password = md5($password);
         $password = password_hash($password, PASSWORD_DEFAULT);
-        $this->sql = "INSERT INTO user(username, password) VALUES ( '$username', '$password')";
+        $this->sql = "INSERT INTO user(username, password, role) VALUES ('$username', '$password', '$role')";
         $this->result = $this->dbConn()->query($this->sql);
         return $this->result;
-        // return $this->getResult();
     }
-
-    // public function getResult()
-    // {
-    //     $this->result = $this->dbConn()->query($this->sql);
-    //     return $this;
-    // }
-
-    // public function FetchArray()
-    // {
-    //     $row = $this->result->fetch_array();
-    //     return $row;
-    // }
 }
 
 // Class Register
@@ -43,14 +26,17 @@ class Register extends Query
     protected $username;
     protected $password;
     protected $Cpassword;
+    public $role;
     public $message;
     protected $result;
 
-    public function __construct($username, $password, $Cpassword)
+    public function __construct($username, $password, $Cpassword, $role)
     {
         $this->username = $username;
         $this->password = $password;
         $this->Cpassword = $Cpassword;
+        $this->role = $role;
+
 
         return $this->validateData();
     }
@@ -83,24 +69,23 @@ class Register extends Query
             $this->message = 'Username yang anda masukan sudah pernah digunakan!.';
             return $this->message;
         } else {
-            $sql = $this->SQLRegister($this->username, $this->password);
-            $_SESSION['username'] = $resultData['username'];
-            $_SESSION['password'] = $resultData['password'];
+            $sql = $this->SQLRegister($this->username, $this->password, $this->role);    
             header('location:../login.php');
         }
     }
 }
 
-
 class Login extends DataBase
 {
-    protected string $username;
-    protected string $password;
+    public string $username;
+    public string $password;
+    public string $role;
 
-    public function __construct(string $username, string $password)
+    public function __construct(?string $username = "", ?string $password = "", ?string $role = "")
     {
         $this->username = $username;
         $this->password = $password;
+        $this->role = $role;
 
         return $this->check_login();
     }
@@ -117,8 +102,15 @@ class Login extends DataBase
             if ($hash == $row['password']) {
 
                 // set session
-                $_SESSION['admin'] = true;
-
+                if($row["role"] == "admin"){
+                    $_SESSION["login"] = true;
+                    $_SESSION["role"] = "admin";
+                }
+                if($row["role"] == "user"){
+                    $_SESSION["login"] = true;
+                    $_SESSION["role"] = "user";
+                }
+                
                 if (isset($_POST['remember'])) {
                     setcookie('id', $row['id'], time() + 10);
                     setcookie('key', hash('ripemd160', $row['username']), time() + 10);

@@ -1,5 +1,5 @@
 <?php
-// require_once('../Config/ClassDatabase.php');
+require_once('../Config/ClassDatabase.php');
 // use DataBase\DataBase;
 
 //start session

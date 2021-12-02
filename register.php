@@ -30,6 +30,9 @@
             <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
             <input type="password" name="Cpassword" class="form-control p-md-2" id="Cpassword" />
           </div>
+          <div class="mb-3">
+            <input type="hidden" value="user" name="role" class="form-control p-md-2" id="Cpassword" />
+          </div>
           <button type="submit" name="submit" class="btn w-100 btn-primary" value="Register">
             Register
           </button>
