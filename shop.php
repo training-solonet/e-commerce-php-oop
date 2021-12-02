@@ -83,12 +83,12 @@ $showDataBarang = new Barang();
 
 <body>
     <nav class="navbar">
-        <a class="logo" href="">Warisanify</a>
+        <a class="logo" href="home.php">Warisanify</a>
         <ul class="nav-list">
             <li><a href="home.php">Home</a></li>
-            <li><a href="">Shop</a></li>
-            <li><a href="">Theater</a></li>
-            <li><a href="">About</a></li>
+            <li><a href="shop.php">Shop</a></li>
+            <li><a href="#">Theater</a></li>
+            <li><a href="#">About</a></li>
         </ul>
     </nav>
 
@@ -118,15 +118,15 @@ $showDataBarang = new Barang();
     </section>
 
     <section class="main-content">
-        <?php foreach($showDataBarang->show() as $dataBarang): ?>
-        <div class="card">
-            <img src="Assets/pict/wayang.png" alt="">
-            <div class="card-content">
-                <h2><?= $dataBarang["nama_barang"]; ?></h2>
-                <p><?= $dataBarang["detail_produk"];?></p>
-                <h2><?= $dataBarang["harga"]; ?></h2>
+        <?php foreach ($showDataBarang->show() as $dataBarang) : ?>
+            <div class="card">
+                <img src="Assets/pict/wayang.png" alt="">
+                <div class="card-content">
+                    <h2><?= $dataBarang["nama_barang"]; ?></h2>
+                    <p><?= $dataBarang["detail_produk"]; ?></p>
+                    <h2><?= $dataBarang["harga"]; ?></h2>
+                </div>
             </div>
-        </div>
         <?php endforeach; ?>
         <!-- <div class="card">
             <img src="Assets/pict/wayang.png" alt="">

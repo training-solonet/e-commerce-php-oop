@@ -1,8 +1,4 @@
 <?php
-// require_once('../Config/ClassDatabase.php');
-// use DataBase\DataBase;
-
-// Class Query
 class Query extends DataBase
 {
 
@@ -69,7 +65,7 @@ class Register extends Query
             $this->message = 'Username yang anda masukan sudah pernah digunakan!.';
             return $this->message;
         } else {
-            $sql = $this->SQLRegister($this->username, $this->password, $this->role);    
+            $sql = $this->SQLRegister($this->username, $this->password, $this->role);
             header('location:../login.php');
         }
     }
@@ -102,15 +98,15 @@ class Login extends DataBase
             if ($hash == $row['password']) {
 
                 // set session
-                if($row["role"] == "admin"){
+                if ($row["role"] == "admin") {
                     $_SESSION["login"] = true;
                     $_SESSION["role"] = "admin";
                 }
-                if($row["role"] == "user"){
+                if ($row["role"] == "user") {
                     $_SESSION["login"] = true;
                     $_SESSION["role"] = "user";
                 }
-                
+
                 if (isset($_POST['remember'])) {
                     setcookie('id', $row['id'], time() + 10);
                     setcookie('key', hash('ripemd160', $row['username']), time() + 10);

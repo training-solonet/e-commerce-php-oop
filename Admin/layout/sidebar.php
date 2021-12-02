@@ -49,6 +49,13 @@
 						<!-- End Typography -->
 					</ul>
 				</li>
+				<li class="u-sidebar-nav-menu__item">
+					<a class="u-sidebar-nav-menu__link" href="../App/logout.php">
+						<div class="fas fa-sign-out-alt"><span></span> </div>
+						<span class="u-sidebar-nav-menu__item-title ">LOG-OUT</span>
+					</a>
+				</li>
+
 				<!-- End UI Base -->
 
 			</ul>

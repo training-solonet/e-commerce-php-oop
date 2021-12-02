@@ -42,19 +42,18 @@ if ($aksi == 'register') {
 
 		if ($cek) {
 
-			if($_COOKIE["id"] == $row["id"]){
+			if ($_COOKIE["id"] == $row["id"]) {
 				$_SESSION["login"] == true;
 			}
 
-			if(isset($_SESSION["login"])){
-				if($_SESSION["role"] == "admin"){
+			if (isset($_SESSION["login"])) {
+				if ($_SESSION["role"] == "admin") {
 					header('location: ../Admin/index.php');
 				}
-				if($_SESSION["role"] == "user"){
+				if ($_SESSION["role"] == "user") {
 					header('location: ../home.php');
 				}
 			}
-
 		} else {
 			echo "<script>
 				alert('username atau password salah');
