@@ -15,12 +15,12 @@
     <section class="hero">
         <nav class="navbar">
             <div class="logo">
-                <a href="home.html">Warisanify</a>
+                <a href="home.php">Warisanify</a>
             </div>
 
             <ul class="nav-list">
                 <li><a href="">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
+                <li><a href="shop.php">Shop</a></li>
                 <li><a href="#">Theater</a></li>
                 <li><a href="#">About</a></li>
             </ul>

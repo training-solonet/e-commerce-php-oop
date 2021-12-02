@@ -51,7 +51,7 @@ if ($aksi == 'register') {
 					header('location: ../Admin/index.php');
 				}
 				if($_SESSION["role"] == "user"){
-					header('location: ../shop.php');
+					header('location: ../home.php');
 				}
 			}
 
