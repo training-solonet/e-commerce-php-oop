@@ -15,10 +15,7 @@ class DataBase
     {
         $this->servername = 'localhost';
         $this->username = 'root';
-
-        $this->password = '123';
-
-        $this->password = 'root';
+        $this->password = '';
 
         $this->dbname = 'warisanify';
 
@@ -26,3 +23,4 @@ class DataBase
         return $this->connection;
     }
 }
+
