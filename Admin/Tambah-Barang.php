@@ -55,7 +55,7 @@ $rows = $show->showKategori();
 
 
                 <div class="u-body">
-                    <form action="../Routes/Route.php?aksi=tambah-barang" method=POST enctype="multipart/from-data">
+                    <form action="../Routes/Route.php?aksi=tambah-barang" method="POST" enctype="multipart/form-data">
                         <div class="card-body pt-0">
                             <!-- Text -->
                             <div class="form-group">

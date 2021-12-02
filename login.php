@@ -32,7 +32,7 @@ if (isset($_SESSION['logins'])) {
 
       <div class="right col-lg-6 col-md-6 col-sm-12 d-flex align-items-center">
         <!-- start-form -->
-        <form class="form container col-md-12 col-lg-8" method=POST action="Routes/Route.php?aksi=login">
+        <form class="form container col-md-12 col-lg-8" method="POST" action="Routes/Route.php?aksi=login">
           <div class="mb-3">
             <label for="Username" class="form-label">Username</label>
             <input type="text" name="username" class="form-control p-md-2" id="Username" aria-describedby="emailHelp" />
