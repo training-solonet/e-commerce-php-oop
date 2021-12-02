@@ -83,7 +83,7 @@ $showDataBarang = new Barang();
 
 <body>
     <nav class="navbar">
-        <a class="logo" href="">Warisanify</a>
+        <a class="logo" href="home.php">Warisanify</a>
         <ul class="nav-list">
             <li><a href="home.php">Home</a></li>
             <li><a href="">Shop</a></li>
