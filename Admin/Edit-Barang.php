@@ -1,5 +1,4 @@
 <?php
-require_once('../Config/ClassDatabase.php');
 require_once('../App/ClassBarang.php');
 
 $edit = new Barang();

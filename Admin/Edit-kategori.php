@@ -1,5 +1,4 @@
 <?php
-require_once '../Config/ClassDatabase.php';
 require_once '../App/ClassKategori.php';
 
 $edit = new Kategori();
@@ -92,9 +91,6 @@ $result = $edit->showUpdate($id);
     <script src="../Assets/awesome/assets/js/charts/area-chart.js"></script>
     <script src="../Assets/awesome/assets/js/charts/area-chart-small.js"></script>
     <script src="../Assets/awesome/assets/js/charts/doughnut-chart.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/7.33.1/sweetalert2.min.js"></script>
-    
 </body>
 <!-- End Body -->
 

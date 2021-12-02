@@ -1,17 +1,19 @@
 <?php
 // namespace Barang;
 require_once('../Config/ClassDatabase.php');
+
 // include('Config/ClassDatabase.php');
 // require_once('Config/ClassDatabase.php');
+
+session_start();
+
 class Barang extends DataBase
 {
 
     public function show()
     {
-        // $query = "SELECT barang.*, kategori.* FROM barang JOIN kategori ON barang.id_kategori = kategori.id";
-        $query = "SELECT *, barang.id as id_barang FROM barang JOIN kategori ON barang.id_kategori = kategori.id";
+        $query = "SELECT *, barang.id as id_barang FROM barang LEFT JOIN kategori ON barang.id_kategori = kategori.id";
         $result = $this->dbConn()->query($query);
-        // $query = mysqli_query($this->connection, "SELECT * from barang");
 
         $rows = [];
         while ($row = mysqli_fetch_array($result)) {
@@ -36,36 +38,10 @@ class Barang extends DataBase
 
     public function create($barang, $harga, $gambar, $detail, $kategori)
     {
-        // if ($gambar != "") {
-        //     $validex = array('png', 'jpg');
-        //     $x = explode('.', $gambar);
-        //     $extensi = strtolower(end($x));
-        //     $fileTmp = $_FILES['gambar']['tmp_name'];
-        //     $angka_acak = rand(1, 999);
-        //     $nama_gambar = $angka_acak . '-' . $gambar;
-
-        //     if (in_array($extensi, $validex) === true) {
-        //         move_uploaded_file($fileTmp, '../Assets/pict/' . $nama_gambar);
-
-        //         $query = "INSERT INTO barang (nama_barang, harga, gambar, detail_produk, id_kategori) 
-        //             VALUES ('$barang', '$harga', '$gambar', '$detail', $kategori)";
-        //         $result = $this->dbConn()->query($query);
-
-        //         if (!$result) {
-        //             echo 'salah';
-        //         } else {
-        //             header('location: ../Admin/index.php');
-        //         }
-        //     } else {
-        //         echo "extensi salah";
-        //     }
-        // } else {
-        //     echo "upload gambar sek";
-        // }
-
         $query = "INSERT INTO barang (nama_barang, harga, gambar, detail_produk, id_kategori) 
                     VALUES ('$barang', '$harga', '$gambar', '$detail', $kategori)";
         $result = $this->dbConn()->query($query);
+        $_SESSION['status'] = true;
     }
 
     public function delete($id)
@@ -88,5 +64,6 @@ class Barang extends DataBase
         gambar = '$gambar', detail_produk = '$detail', id_kategori = '$kategori' WHERE id = $id";
 
         $result = $this->dbConn()->query($query);
+        $_SESSION['sukses'] = true;
     }
 }

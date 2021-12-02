@@ -1,10 +1,17 @@
 <?php
+
 // session_start();
 
 // require_once('../Config/ClassDatabase.php');
 
 
 // require_once('../Config/ClassDatabase.php');
+
+
+require_once('../Config/ClassDatabase.php');
+require_once('../App/ClassKategori.php');
+require_once('../App/ClassLogin.php');
+
 require_once('../App/ClassBarang.php');
 require_once('../App/ClassLogin.php');
 require_once('../App/ClassKategori.php');
@@ -77,14 +84,14 @@ if ($aksi == 'register') {
 		$kategori = $_POST['nama_kategori'];
 
 		$koneksi->update($id, $kategori);
-		
+
 		header('location:../Admin/kategori.php');
 	}
 } else if ($aksi == 'hapus-kategori') {
 
 	$koneksi = new Kategori();
 
-	$id = $_GET['idK'];
+	$id = $_GET['id'];
 	$result = $koneksi->hapus($id);
 	header('Location:../Admin/kategori.php');
 } elseif ($aksi == 'tambah-barang') {
@@ -105,15 +112,11 @@ if ($aksi == 'register') {
 		header('location:../Admin/index.php');
 	}
 } elseif ($aksi == "hapus-barang") {
-	$koneksi = new Barang();
 
 	$id = $_GET['id'];
 	$result = $koneksi->delete($id);
 	header('location: ../Admin/index.php');
-
 } elseif ($aksi == "edit-barang") {
-
-	$koneksi = new Barang();
 
 	if (isset($_POST['submit'])) {
 
