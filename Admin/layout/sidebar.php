@@ -3,7 +3,7 @@
 		<!-- Sidebar Header -->
 		<header class="u-sidebar-header">
 			<!-- Sidebar Logo -->
-			<a class="u-sidebar-logo" href="index.html">
+			<a class="u-sidebar-logo" href="index.php">
 				<h3>WARISANIFY</h3>
 			</a>
 			<!-- End Sidebar Logo -->
@@ -16,7 +16,7 @@
 			<ul class="u-sidebar-nav-menu u-sidebar-nav-menu--top-level">
 				<!-- Dashboard -->
 				<li class="u-sidebar-nav-menu__item">
-					<a class="u-sidebar-nav-menu__link active" href="index.html">
+					<a class="u-sidebar-nav-menu__link active" href="index.php">
 						<span class="ti-dashboard u-sidebar-nav-menu__item-icon"></span>
 						<span class="u-sidebar-nav-menu__item-title">Dashboard</span>
 					</a>

@@ -37,7 +37,6 @@
             Register
           </button>
         </form>
-
       </div>
       <div class="right col-md-6 col-lg-6 bg-primary"></div>
     </div>

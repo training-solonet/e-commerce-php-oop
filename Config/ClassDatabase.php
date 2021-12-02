@@ -1,24 +1,21 @@
 <?php
-// namespace DataBase;
-// use Mysqli;
 class DataBase
 {
+        private $servername;
+        private $username;
+        private $password;
+        private $dbname;
 
-    private $servername;
-    private $username;
-    private $password;
-    private $dbname;
+        protected $connection;
 
-    protected $connection;
+        protected function dbConn()
+        {
+                $this->servername = 'localhost';
+                $this->username = 'root';
+                $this->password = 'root';
+                $this->dbname = 'warisanify';
 
-    protected function dbConn()
-    {
-        $this->servername = 'localhost';
-        $this->username = 'root';
-        $this->password = 'root';
-        $this->dbname = 'warisanify';
-
-        $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
-        return $this->connection;
-    }
+                $this->connection = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+                return $this->connection;
+        }
 }

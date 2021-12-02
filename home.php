@@ -110,7 +110,10 @@ if (!isset($_SESSION['login'])) {
     <section class="membership">
         <h1>Upgrade to Member<span>ship</span></h1>
         <hr>
-        <p>Get serial key<br> to unlock special deals<br> and free delivery on Central Java</p> <button class="upgrade-membership">Upgrade now</button>
+        <<<<<<< HEAD <p>Get serial key<br> to unlock special deals<br> and free delivery on Central Java</p> <button class="upgrade-membership">Upgrade now</button>
+            =======
+            <p>Get serial key<br> to unlock special deals<br> and free delivery on Central Java</p> <button class="upgrade-membership">Upgrade now</button>
+            >>>>>>> 53a934d91b5e6ae02714ff4034162389deaf86e7
     </section>
 
     <!-- Membership Section END -->
@@ -191,17 +194,21 @@ if (!isset($_SESSION['login'])) {
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script>
-        $('.slider').slick({
-            slidesToShow: 3,
-            slidesToScroll: 3,
-            centerMode: true
+    <<<<<<< HEAD <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
+        </script>
+        =======
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        >>>>>>> 53a934d91b5e6ae02714ff4034162389deaf86e7
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+        <script>
+            $('.slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                centerMode: true
 
-        });
-    </script>
+            });
+        </script>
 </body>
 
 </html>
