@@ -123,4 +123,3 @@ class Login extends DataBase
         }
     }
 }
-?>

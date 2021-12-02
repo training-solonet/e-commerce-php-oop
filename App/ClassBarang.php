@@ -67,4 +67,3 @@ class Barang extends DataBase
         $_SESSION['sukses'] = true;
     }
 }
-?>

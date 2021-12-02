@@ -44,4 +44,3 @@ class Kategori extends DataBase
         $result = $this->dbConn()->query($query);
     }
 }
-?>

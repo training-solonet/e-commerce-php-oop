@@ -11,4 +11,3 @@ setcookie('key', '');
 header('Location: ../login.php');
 exit;
 
-?>
