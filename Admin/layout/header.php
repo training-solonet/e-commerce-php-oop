@@ -2,7 +2,7 @@
 		<!-- Header Left Section -->
 		<div class="u-header-left">
 			<!-- Header Logo -->
-			<a class="u-header-logo" href="index.html">
+			<a class="u-header-logo" href="index.php">
 				<h2>WARISANIFY</h2>
 
 			</a>
